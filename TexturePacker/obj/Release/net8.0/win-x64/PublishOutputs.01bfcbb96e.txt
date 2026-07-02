@@ -1,0 +1,4 @@
+C:\Users\carpet\Documents\fna-game\TexturePacker\bin\Release\net8.0\win-x64\publish\TexturePacker.exe
+C:\Users\carpet\Documents\fna-game\TexturePacker\bin\Release\net8.0\win-x64\publish\TexturePacker.pdb
+C:\Users\carpet\Documents\fna-game\TexturePacker\bin\Release\net8.0\win-x64\publish\FNA.pdb
+C:\Users\carpet\Documents\fna-game\TexturePacker\bin\Release\net8.0\win-x64\publish\FNA.dll.config

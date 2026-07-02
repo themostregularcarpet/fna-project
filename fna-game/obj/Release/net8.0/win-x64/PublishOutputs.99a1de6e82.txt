@@ -1,0 +1,11 @@
+C:\Users\carpet\Documents\fna-game\fna-game\bin\Release\net8.0\win-x64\publish\Content\Graphics\atlas.bin
+C:\Users\carpet\Documents\fna-game\fna-game\bin\Release\net8.0\win-x64\publish\Content\Graphics\atlas_data.json
+C:\Users\carpet\Documents\fna-game\fna-game\bin\Release\net8.0\win-x64\publish\Content\Graphics\testLevel.json
+C:\Users\carpet\Documents\fna-game\fna-game\bin\Release\net8.0\win-x64\publish\Content\Graphics\testTileSet.png
+C:\Users\carpet\Documents\fna-game\fna-game\bin\Release\net8.0\win-x64\publish\Content\Graphics\tilemapTest.png
+C:\Users\carpet\Documents\fna-game\fna-game\bin\Release\net8.0\win-x64\publish\fmod.dll
+C:\Users\carpet\Documents\fna-game\fna-game\bin\Release\net8.0\win-x64\publish\fmodstudio.dll
+C:\Users\carpet\Documents\fna-game\fna-game\bin\Release\net8.0\win-x64\publish\fna-game.exe
+C:\Users\carpet\Documents\fna-game\fna-game\bin\Release\net8.0\win-x64\publish\fna-game.pdb
+C:\Users\carpet\Documents\fna-game\fna-game\bin\Release\net8.0\win-x64\publish\FNA.pdb
+C:\Users\carpet\Documents\fna-game\fna-game\bin\Release\net8.0\win-x64\publish\FNA.dll.config

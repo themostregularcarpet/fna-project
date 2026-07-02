@@ -1,0 +1,6 @@
+C:\Users\wwwwa\OneDrive\Desktop\fna-game\fna-game\bin\Release\net8.0\win-x64\publish\Content\Graphics\atlas.bin
+C:\Users\wwwwa\OneDrive\Desktop\fna-game\fna-game\bin\Release\net8.0\win-x64\publish\Content\Graphics\atlas_data.json
+C:\Users\wwwwa\OneDrive\Desktop\fna-game\fna-game\bin\Release\net8.0\win-x64\publish\fna-game.exe
+C:\Users\wwwwa\OneDrive\Desktop\fna-game\fna-game\bin\Release\net8.0\win-x64\publish\fna-game.pdb
+C:\Users\wwwwa\OneDrive\Desktop\fna-game\fna-game\bin\Release\net8.0\win-x64\publish\FNA.pdb
+C:\Users\wwwwa\OneDrive\Desktop\fna-game\fna-game\bin\Release\net8.0\win-x64\publish\FNA.dll.config

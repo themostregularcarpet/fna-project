@@ -1,0 +1,74 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<OutputType>Exe</OutputType>
+		<TargetFramework>net8.0</TargetFramework>
+		<RootNamespace>fna_game</RootNamespace>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<InvariantGlobalization>true</InvariantGlobalization>
+		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+
+		<PublishAot>true</PublishAot>
+		<IsAotCompatible>true</IsAotCompatible>
+		<RuntimeIdentifier>win-x64</RuntimeIdentifier>
+		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+		<OptimizationPreference>speed</OptimizationPreference>
+		<TrimMode>partial</TrimMode>
+		<EnableTrimAnalyzer>true</EnableTrimAnalyzer>
+
+		<IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\FNA\FNA.Core.csproj" />
+		<PackageReference Include="System.Text.Json" Version="8.0.5" />
+	</ItemGroup>
+
+	<ItemGroup Condition="'$(OS)' == 'Windows_NT'">
+		<NativeLibrary Include="SDL3.lib" />
+		<NativeLibrary Include="FNA3D.lib" />
+		<NativeLibrary Include="FAudio.lib" />
+		<NativeLibrary Include="libtheorafile.lib" />
+		<NativeLibrary Include="fmod_vc.lib" />
+		<NativeLibrary Include="fmodstudio_vc.lib" />
+	</ItemGroup>
+
+	<ItemGroup Condition="'$(OS)' != 'Windows_NT'">
+		<NativeLibrary Include="-lSDL3" />
+		<NativeLibrary Include="-lFNA3D" />
+		<NativeLibrary Include="-lFAudio" />
+		<NativeLibrary Include="-ltheorafile" />
+		<NativeLibrary Include="fmod_vc" />
+		<NativeLibrary Include="fmodstudio_vc" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<DirectPInvoke Include="SDL3" />
+		<DirectPInvoke Include="FNA3D" />
+		<DirectPInvoke Include="FAudio" />
+		<DirectPInvoke Include="libtheorafile" />
+		<DirectPInvoke Include="fmod" />
+		<DirectPInvoke Include="fmodstudio" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Content Include="Content/**/*">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Include="fmod.dll">
+			<Link>fmod.dll</Link>
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+	</ItemGroup>
+	
+	<ItemGroup>
+		<None Include="fmodstudio.dll">
+			<Link>fmodstudio.dll</Link>
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+	</ItemGroup>
+</Project>

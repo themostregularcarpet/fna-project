@@ -1,0 +1,88 @@
+{
+  "name": "proj",
+  "ogmoVersion": "3.4.0",
+  "levelPaths": ["."],
+  "backgroundColor": "#282c34ff",
+  "gridColor": "#3c4049cc",
+  "anglesRadians": true,
+  "directoryDepth": 5,
+  "layerGridDefaultSize": {"x": 8, "y": 8},
+  "levelDefaultSize": {"x": 320, "y": 240},
+  "levelMinSize": {"x": 128, "y": 128},
+  "levelMaxSize": {"x": 4096, "y": 4096},
+  "levelValues": [],
+  "defaultExportMode": ".json",
+  "compactExport": false,
+  "externalScript": "",
+  "playCommand": "",
+  "entityTags": [],
+  "layers": [
+    {
+      "definition": "tile",
+      "name": "layer1",
+      "gridSize": {"x": 20, "y": 20},
+      "exportID": "81879375",
+      "exportMode": 0,
+      "arrayMode": 0,
+      "defaultTileset": "tiles"
+    },
+    {
+      "definition": "entity",
+      "name": "entites",
+      "gridSize": {"x": 8, "y": 8},
+      "exportID": "83839892",
+      "requiredTags": [],
+      "excludedTags": []
+    },
+    {
+      "definition": "tile",
+      "name": "collision",
+      "gridSize": {"x": 20, "y": 20},
+      "exportID": "81870039",
+      "exportMode": 0,
+      "arrayMode": 0,
+      "defaultTileset": "tiles"
+    }
+  ],
+  "entities": [
+    {
+      "exportID": "83839616",
+      "name": "player",
+      "limit": -1,
+      "size": {"x": 16, "y": 16},
+      "origin": {"x": 0, "y": 0},
+      "originAnchored": true,
+      "shape": {
+        "label": "Rectangle",
+        "points": [
+          {"x": -1, "y": -1},
+          {"x": 1, "y": -1},
+          {"x": -1, "y": 1},
+          {"x": 1, "y": -1},
+          {"x": -1, "y": 1},
+          {"x": 1, "y": 1}
+        ]
+      },
+      "color": "#ff0000ff",
+      "tileX": false,
+      "tileY": false,
+      "tileSize": {"x": 16, "y": 16},
+      "resizeableX": false,
+      "resizeableY": false,
+      "rotatable": false,
+      "rotationDegrees": 360,
+      "canFlipX": false,
+      "canFlipY": false,
+      "canSetColor": false,
+      "hasNodes": false,
+      "nodeLimit": 0,
+      "nodeDisplay": 0,
+      "nodeGhost": true,
+      "tags": [],
+      "values": []
+    }
+  ],
+  "tilesets": [
+    {"label": "tiles", "path": "testTileSet.png", "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAAUCAYAAADRA14pAAAAAXNSR0IArs4c6QAAAF9JREFUWIXt2EENwCAUg+FCno6JQAtG5ovbfGCEcN11mOhY1vQT0PC/I6mV8oBoXgdzDvc5qHsBALX3xBhjH+8N+esH7OZgdQ5W52B1DlbnYHUOVudgdQ5WF/jJTwXLArAuDFqwCMRVAAAAAElFTkSuQmCC", "tileWidth": 20, "tileHeight": 20, "tileSeparationX": 0, "tileSeparationY": 0, "tileMarginX": 0, "tileMarginY": 0}
+  ]
+}

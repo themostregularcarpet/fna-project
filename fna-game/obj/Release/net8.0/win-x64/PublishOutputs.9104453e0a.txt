@@ -1,0 +1,4 @@
+C:\Users\wwwwa\source\repos\fna-game\fna-game\bin\Release\net8.0\win-x64\publish\fna-game.exe
+C:\Users\wwwwa\source\repos\fna-game\fna-game\bin\Release\net8.0\win-x64\publish\fna-game.pdb
+C:\Users\wwwwa\source\repos\fna-game\fna-game\bin\Release\net8.0\win-x64\publish\FNA.pdb
+C:\Users\wwwwa\source\repos\fna-game\fna-game\bin\Release\net8.0\win-x64\publish\FNA.dll.config
