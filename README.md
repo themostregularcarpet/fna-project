@@ -6,3 +6,4 @@ curr libraries:
 - fna
 - faudio
 - fmod
+- fontstashsharp
