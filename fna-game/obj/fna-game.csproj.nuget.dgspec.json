@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\carpet\\Documents\\fna-game\\fna-game\\fna-game.csproj": {}
+    "C:\\Users\\carpet\\Documents\\GitHub\\game-project\\fna-game\\fna-game.csproj": {}
   },
   "projects": {
-    "C:\\Users\\carpet\\Documents\\fna-game\\fna-game\\fna-game.csproj": {
+    "C:\\Users\\carpet\\Documents\\GitHub\\game-project\\fna-game\\fna-game.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\carpet\\Documents\\fna-game\\fna-game\\fna-game.csproj",
+        "projectUniqueName": "C:\\Users\\carpet\\Documents\\GitHub\\game-project\\fna-game\\fna-game.csproj",
         "projectName": "fna-game",
-        "projectPath": "C:\\Users\\carpet\\Documents\\fna-game\\fna-game\\fna-game.csproj",
+        "projectPath": "C:\\Users\\carpet\\Documents\\GitHub\\game-project\\fna-game\\fna-game.csproj",
         "packagesPath": "C:\\Users\\carpet\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\carpet\\Documents\\fna-game\\fna-game\\obj\\",
+        "outputPath": "C:\\Users\\carpet\\Documents\\GitHub\\game-project\\fna-game\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\carpet\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -28,8 +28,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\carpet\\Documents\\fna-game\\FNA\\FNA.Core.csproj": {
-                "projectPath": "C:\\Users\\carpet\\Documents\\fna-game\\FNA\\FNA.Core.csproj"
+              "C:\\Users\\carpet\\Documents\\GitHub\\game-project\\FNA\\FNA.Core.csproj": {
+                "projectPath": "C:\\Users\\carpet\\Documents\\GitHub\\game-project\\FNA\\FNA.Core.csproj"
+              },
+              "C:\\Users\\carpet\\Documents\\GitHub\\game-project\\FontStashSharp\\src\\XNA\\FontStashSharp.FNA.Core.csproj": {
+                "projectPath": "C:\\Users\\carpet\\Documents\\GitHub\\game-project\\FontStashSharp\\src\\XNA\\FontStashSharp.FNA.Core.csproj"
               }
             }
           }
@@ -98,14 +101,14 @@
         }
       }
     },
-    "C:\\Users\\carpet\\Documents\\fna-game\\FNA\\FNA.Core.csproj": {
+    "C:\\Users\\carpet\\Documents\\GitHub\\game-project\\FNA\\FNA.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\carpet\\Documents\\fna-game\\FNA\\FNA.Core.csproj",
+        "projectUniqueName": "C:\\Users\\carpet\\Documents\\GitHub\\game-project\\FNA\\FNA.Core.csproj",
         "projectName": "FNA",
-        "projectPath": "C:\\Users\\carpet\\Documents\\fna-game\\FNA\\FNA.Core.csproj",
+        "projectPath": "C:\\Users\\carpet\\Documents\\GitHub\\game-project\\FNA\\FNA.Core.csproj",
         "packagesPath": "C:\\Users\\carpet\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\carpet\\Documents\\fna-game\\FNA\\obj_core\\",
+        "outputPath": "C:\\Users\\carpet\\Documents\\GitHub\\game-project\\FNA\\obj_core\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\carpet\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -139,6 +142,89 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.315/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\carpet\\Documents\\GitHub\\game-project\\FontStashSharp\\src\\XNA\\FontStashSharp.FNA.Core.csproj": {
+      "version": "1.5.6",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\carpet\\Documents\\GitHub\\game-project\\FontStashSharp\\src\\XNA\\FontStashSharp.FNA.Core.csproj",
+        "projectName": "FontStashSharp.FNA",
+        "projectPath": "C:\\Users\\carpet\\Documents\\GitHub\\game-project\\FontStashSharp\\src\\XNA\\FontStashSharp.FNA.Core.csproj",
+        "packagesPath": "C:\\Users\\carpet\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\carpet\\Documents\\GitHub\\game-project\\FontStashSharp\\src\\XNA\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\carpet\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "C:\\Users\\carpet\\Documents\\GitHub\\game-project\\FNA\\FNA.Core.csproj": {
+                "projectPath": "C:\\Users\\carpet\\Documents\\GitHub\\game-project\\FNA\\FNA.Core.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Cyotek.Drawing.BitmapFont": {
+              "target": "Package",
+              "version": "[2.0.4, )"
+            },
+            "FontStashSharp.Base": {
+              "target": "Package",
+              "version": "[1.2.3, )"
+            },
+            "FontStashSharp.Rasterizers.StbTrueTypeSharp": {
+              "target": "Package",
+              "version": "[1.2.3, )"
+            },
+            "StbImageSharp": {
+              "target": "Package",
+              "version": "[2.30.15, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

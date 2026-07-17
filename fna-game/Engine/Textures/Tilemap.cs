@@ -2,7 +2,6 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
-using System.Runtime.ExceptionServices;
 
 namespace Videogame.Engine.Textures;
 
@@ -110,11 +109,12 @@ public class Tilemap
                 {
                     int index = y * levelWidth + x;
                     int tileId = collisionLayer.Data[index];
-                    if (tileId == -1)
-                        continue;
-
-                    var rect = new Rectangle(x * tileWidth, y * tileHeight, tileWidth, tileHeight);
-                    collisionRects.Add(rect);
+                    
+                    if (tileId != -1)
+                    {
+                        var rect = new Rectangle(x * tileWidth, y * tileHeight, tileWidth, tileHeight);
+                        collisionRects.Add(rect);
+                    }
                 }
             }
         }
@@ -122,13 +122,9 @@ public class Tilemap
 
         var entityLayer = level.Layers.FirstOrDefault(l => l.Name == entityLayerName);
         if (entityLayer != null)
-        {
             entities = entityLayer.Entities ?? new List<Entity>();
-        }
         else
-        {
             entities = new List<Entity>();
-        }
 
         foreach (var entity in entities)
         {
@@ -141,26 +137,28 @@ public class Tilemap
     {
         foreach (var layer in layers)
         {
-            if (layer.Data == null) continue;
-
-            if (collisionLayerName != null && layer.Name == collisionLayerName) continue;
-
-            for (int y = 0; y < levelHeight; y++)
+            if (layer.Data != null)
             {
-                for (int x = 0; x < levelWidth; x++)
+                if (layer.Name != collisionLayerName)
                 {
-                    int index = y * levelWidth + x;
-                    int tileId = layer.Data[index];
+                    for (int y = 0; y < levelHeight; y++)
+                    {
+                        for (int x = 0; x < levelWidth; x++)
+                        {
+                            int index = y * levelWidth + x;
+                            int tileId = layer.Data[index];
 
-                    if (tileId == -1)
-                        continue;
-
-                    if (tileId < 0 || tileId >= tileRects.Count) 
-                        continue;
-
-                    var rect = tileRects[tileId];
-                    Vector2 position = new Vector2(x * tileWidth, y * tileHeight);
-                    Core.SpriteBatch.Draw(tileset, position, rect, Color.White);
+                            if (tileId != -1)
+                            {
+                                if (tileId > 0 || tileId <= tileRects.Count)
+                                {
+                                    var rect = tileRects[tileId];
+                                    Vector2 position = new Vector2(x * tileWidth, y * tileHeight);
+                                    Core.SpriteBatch.Draw(tileset, position, rect, Color.White);                                    
+                                } 
+                            }
+                        }
+                    }
                 }
             }
         }

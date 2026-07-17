@@ -6,6 +6,7 @@ using Videogame.Engine.Input;
 using Videogame.Engine.ASS;
 using Videogame.Engine.Audio;
 using Videogame.Engine.Camera;
+using Videogame.Engine.UI;
 
 public class Core : Game 
 {
@@ -18,6 +19,7 @@ public class Core : Game
     public static ContentManager Content { get; private set; }
     public static Input Input { get; private set; }
     public static Camera Camera { get; private set; }
+    public static Fonts Fonts { get; private set; }
 
     private static Scene s_activeScene;
     private static Scene s_nextScene;
@@ -27,6 +29,14 @@ public class Core : Game
     private bool isResizing = false;
     private RenderTarget2D gameRenderTarget;
     private int scale, offsetX, offsetY, renderWidth, renderHeight;
+
+    private const int UI_LOGICAL_WIDTH = 1280;
+    private const int UI_LOGICAL_HEIGHT = 720;
+    private Matrix uiTransformMatrix;
+    public static readonly RasterizerState ScissorState = new RasterizerState
+    {
+        ScissorTestEnable = true
+    };
 
     public Core(int width, int height, string title, bool isFullscreen, bool isVsync, bool isBorderless)
     {
@@ -64,6 +74,9 @@ public class Core : Game
         GraphicsDevice = base.GraphicsDevice;
         SpriteBatch = new SpriteBatch(GraphicsDevice);
         Input = new Input();
+        Fonts = new Fonts();
+        
+        Fonts.Load();
         AudioManager.Initialize();
         Camera = new Camera(new Vector2(LOGICAL_WIDTH / 2f, LOGICAL_HEIGHT / 2f));
 
@@ -88,6 +101,7 @@ public class Core : Game
             TransitionScene();
 
         s_activeScene?.Update(gameTime);
+        UiManager.UpdateUi(gameTime);
         base.Update(gameTime);
     }
 
@@ -96,6 +110,7 @@ public class Core : Game
         GraphicsDevice.SetRenderTarget(gameRenderTarget);
         GraphicsDevice.Clear(Color.Black);
 
+        // in-game object related drawings
         SpriteBatch.Begin(SpriteSortMode.Deferred, null, SamplerState.PointClamp, null, null, null, Camera.GetViewMatrix());
         s_activeScene?.Draw();
         SpriteBatch.End();
@@ -104,13 +119,17 @@ public class Core : Game
 
         GraphicsDevice.Clear(Color.Black);
 
+        // render target related drawings
         SpriteBatch.Begin(SpriteSortMode.Deferred, null, SamplerState.PointClamp, null, null);
         SpriteBatch.Draw(gameRenderTarget, new Rectangle(offsetX, offsetY, renderWidth, renderHeight), Color.White);
         SpriteBatch.End();
 
-        // SpriteBatch.Begin(...);
-        // ... UI SHIT ...
-        // SpriteBatch.End();
+        GraphicsDevice.ScissorRectangle = new Rectangle(offsetX, offsetY, renderWidth, renderHeight);
+        
+        // ui related drawings
+        SpriteBatch.Begin(SpriteSortMode.Deferred, null, SamplerState.LinearClamp, null, ScissorState, null, uiTransformMatrix);
+        UiManager.DrawUi();
+        SpriteBatch.End();
 
         base.Draw(gameTime);
     }
@@ -138,11 +157,13 @@ public class Core : Game
 
     private void ApplyIntScaling()
     {
-        if (isResizing) return;
+        if (isResizing) 
+            return;
+            
         isResizing = true;
 
-        int windowWidth = Window.ClientBounds.Width;
-        int windowHeight = Window.ClientBounds.Height;
+        int windowWidth = GraphicsDevice.PresentationParameters.BackBufferWidth;
+        int windowHeight = GraphicsDevice.PresentationParameters.BackBufferHeight;
 
         int scaleX = windowWidth / LOGICAL_WIDTH;
         int scaleY = windowHeight / LOGICAL_HEIGHT;
@@ -154,12 +175,17 @@ public class Core : Game
         offsetX = (windowWidth - renderWidth) / 2;
         offsetY = (windowHeight - renderHeight) / 2;
 
-        isResizing = false;
-    }
+        float uiScaleX = (float)renderWidth / UI_LOGICAL_WIDTH;
+        float uiScaleY = (float)renderHeight / UI_LOGICAL_HEIGHT;
+        float uiScale = Math.Min(uiScaleX, uiScaleY);
 
-    protected override void UnloadContent()
-    {
-        base.UnloadContent();
-        AudioManager.Dispose();
+        int uiRenderWidth = (int)(UI_LOGICAL_WIDTH * uiScale);
+        int uiRenderHeight = (int)(UI_LOGICAL_HEIGHT * uiScale);
+        int uiOffsetX = offsetX + (renderWidth - uiRenderWidth) / 2;
+        int uiOffsetY = offsetY + (renderHeight - uiRenderHeight) / 2;
+
+        uiTransformMatrix = Matrix.CreateScale(uiScale, uiScale, 1) * Matrix.CreateTranslation(uiOffsetX, uiOffsetY, 0);
+
+        isResizing = false;
     }
 }

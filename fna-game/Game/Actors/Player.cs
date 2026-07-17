@@ -3,6 +3,7 @@ using Videogame.Engine;
 using Videogame.Engine.Audio;
 using Videogame.Engine.Input;
 using Videogame.Engine.Textures;
+using Videogame.Engine.UI;
 
 namespace Videogame.Game.Actors;
 
@@ -27,8 +28,9 @@ public class Player : Actor
         if (ActorManager.ActorCount<Player>() > 2) 
             Destroy();
 
-        int speed = 75;
+        float speed = 75f;
         Velocity = Vector2.Zero;
+
         if (Core.Input.Keyboard.IsKeyDown(Controls.Up))     Velocity.Y -= speed;
         if (Core.Input.Keyboard.IsKeyDown(Controls.Down))   Velocity.Y += speed;
         if (Core.Input.Keyboard.IsKeyDown(Controls.Left))   Velocity.X -= speed;
@@ -40,19 +42,24 @@ public class Player : Actor
         {
             pitch -= 0.1f;
             pitch = Math.Clamp(pitch, 0f, 1f);
-            System.Console.WriteLine($"pitch = {pitch}");
+            Console.WriteLine($"pitch = {pitch}");
         }
         if (Core.Input.Keyboard.WasKeyPressed(Microsoft.Xna.Framework.Input.Keys.Y)) 
         {
             pitch += 0.1f;
             pitch = Math.Clamp(pitch, 0f, 1f);
-            System.Console.WriteLine($"pitch = {pitch}");
+            Console.WriteLine($"pitch = {pitch}");
         }
 
         if (Core.Input.Keyboard.WasKeyPressed(Microsoft.Xna.Framework.Input.Keys.G)) 
         {
             var instance = AudioManager.PlayEvent("event:/New Event");
             AudioManager.SetParameter(instance, "testParam", pitch);
+        }
+
+        if (Core.Input.Keyboard.WasKeyPressed(Microsoft.Xna.Framework.Input.Keys.H))
+        {   
+            Textbox.Create("dialogue.txt", "DIALOGUE_TEST");
         }
 
         base.Step(gameTime);

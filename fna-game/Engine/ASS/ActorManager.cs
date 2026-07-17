@@ -20,14 +20,17 @@ public static class ActorManager
         return actor;
     }
 
-    public static Actor CreateActorByName(string name, Vector2 position)
+    public static Actor CreateActorByName(string name, Vector2? position)
     {
         string className = char.ToUpper(name[0]) + name.Substring(1);
         string fullName = $"Videogame.Game.Actors.{className}";
         
         Type type = Type.GetType(fullName, true);
         var actor = (Actor)Activator.CreateInstance(type);
-        actor.Position = position;
+        if (position != null)
+        {
+            actor.Position = (Vector2)position;
+        }
         actor.Create();
         actorsToAdd.Add(actor);
         return actor;
@@ -45,18 +48,24 @@ public static class ActorManager
     public static void UpdateAllActors(GameTime gameTime)
     {
         foreach (var actor in actorsToRemove)
-            Actors.Remove(actor);
+        {
+            Actors.Remove(actor);   
+        }
         actorsToRemove.Clear();
 
         foreach (var actor in actorsToAdd)
+        {
             Actors.Add(actor);
+        }
         actorsToAdd.Clear();
 
         foreach (var actor in Actors)
+        {
             actor.Step(gameTime);
+        }
     }
 
-    public static void DrawAllActors()
+    public static void DrawActors()
     {
         Actors.Sort((a, b) =>
         {
@@ -64,17 +73,22 @@ public static class ActorManager
         });
 
         foreach (var actor in Actors)
+        {
             actor.Draw();
+        }
     }
 
-    public static void RemoveAllActors()
+    public static void RemoveActors()
     {
         foreach (var actor in Actors)
+        {
             if (!actor.IsPersistent)
+            {
                 DestroyActor(actor);
+            }
+            
+        }
     }
-
-    public static void RemoveActor(Actor actor) => actor.IsDestroyed = true;
 
     public static T? ActorFindByType<T>() where T : Actor
         => Actors.OfType<T>().FirstOrDefault();

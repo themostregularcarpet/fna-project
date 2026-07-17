@@ -1,0 +1,5 @@
+[DIALOGUE_TEST]
+- hello! this is a dialogue!
+- here you can find these c/[red]dialogue lines that aren't going to be used in any shape or form!
+- i'm just testing this thing in order to make everything silky smooth and good
+- okay, i think i'm gonna leave you to make more useful dialogue, ciao! <3

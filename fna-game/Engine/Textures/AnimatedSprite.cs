@@ -1,3 +1,4 @@
+using System.Runtime.CompilerServices;
 using Microsoft.Xna.Framework;
 
 namespace Videogame.Engine.Textures;
@@ -6,6 +7,7 @@ public class AnimatedSprite : Sprite
 {
     public TimeSpan Delay;
     public bool IsAnimating = true;
+    public bool IsLooping = true;
     private int currFrame;
     private TimeSpan time;
     private List<string> sprites = new List<string>();
@@ -13,11 +15,12 @@ public class AnimatedSprite : Sprite
 
     public AnimatedSprite() {}
 
-    public AnimatedSprite(TimeSpan delay, TextureAtlas atlas, params string[] sprites) 
+    public AnimatedSprite(TextureAtlas atlas, TimeSpan delay, bool isLooping = true, params string[] sprites) 
     {
         this.atlas = atlas;
-        Delay = delay;
         this.sprites.AddRange(sprites);
+        IsLooping = isLooping;
+        Delay = delay;
     }
 
     public void Update(GameTime gameTime)
@@ -28,7 +31,16 @@ public class AnimatedSprite : Sprite
         if (time >= Delay)
         {
             time -= Delay;
-            currFrame = (currFrame + 1) % sprites.Count;
+            if (currFrame <= sprites.Count)
+            {
+                currFrame++;
+            } else
+            {
+                if (IsLooping)
+                    return;
+                
+                currFrame = 0;
+            }
         }
     }
 
@@ -41,7 +53,15 @@ public class AnimatedSprite : Sprite
         Core.SpriteBatch.Draw(atlas.GetAtlas(), Position, rect, Color, Rotation, Origin, Scale, SpriteEffects, LayerDepth);
     }
 
-    public void Stop() => IsAnimating = !IsAnimating;
+    /// <summary>
+    /// switches animation to or not to play, just haven't found a better way to name it :P
+    /// </summary>
+    public void SwitchAnimatingState() => IsAnimating = !IsAnimating;
+
+    /// <summary>
+    /// switches animation to or not to loop, just haven't found a better way to name it :P
+    /// </summary>
+    public void SwitchAnimationLooping() => IsLooping = !IsLooping;
 
     public void Reset()
     {

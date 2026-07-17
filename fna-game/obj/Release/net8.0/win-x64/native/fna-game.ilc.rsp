@@ -1,7 +1,13 @@
 obj\Release\net8.0\win-x64\fna-game.dll
 -o:obj\Release\net8.0\win-x64\native\fna-game.obj
 -r:C:\Users\carpet\.nuget\packages\microsoft.netcore.app.runtime.win-x64\8.0.28\runtimes\win-x64\lib\net8.0\WindowsBase.dll
--r:C:\Users\carpet\Documents\fna-game\FNA\bin\Release\net8.0\FNA.dll
+-r:C:\Users\carpet\.nuget\packages\cyotek.drawing.bitmapfont\2.0.4\lib\net5.0\Cyotek.Drawing.BitmapFont.dll
+-r:C:\Users\carpet\.nuget\packages\fontstashsharp.base\1.2.3\lib\netstandard2.0\FontStashSharp.Base.dll
+-r:C:\Users\carpet\.nuget\packages\fontstashsharp.rasterizers.stbtruetypesharp\1.2.3\lib\netstandard2.0\FontStashSharp.Rasterizers.StbTrueTypeSharp.dll
+-r:C:\Users\carpet\.nuget\packages\stbimagesharp\2.30.15\lib\netstandard2.0\StbImageSharp.dll
+-r:C:\Users\carpet\.nuget\packages\stbtruetypesharp\1.26.12\lib\netstandard2.0\StbTrueTypeSharp.dll
+-r:C:\Users\carpet\Documents\GitHub\game-project\FNA\bin\Release\net8.0\FNA.dll
+-r:C:\Users\carpet\Documents\GitHub\game-project\FontStashSharp\src\XNA\bin\FNA.Core\Release\net8.0\FontStashSharp.FNA.dll
 -r:C:\Users\carpet\.nuget\packages\runtime.win-x64.microsoft.dotnet.ilcompiler\8.0.28\sdk\System.Private.CoreLib.dll
 -r:C:\Users\carpet\.nuget\packages\runtime.win-x64.microsoft.dotnet.ilcompiler\8.0.28\sdk\System.Private.DisabledReflection.dll
 -r:C:\Users\carpet\.nuget\packages\runtime.win-x64.microsoft.dotnet.ilcompiler\8.0.28\sdk\System.Private.Reflection.Execution.dll
@@ -246,6 +252,7 @@ obj\Release\net8.0\win-x64\fna-game.dll
 --nowarn:"1701;1702;IL2121;1701;1702"
 --singlewarn
 --nosinglewarnassembly:FNA
+--nosinglewarnassembly:FontStashSharp
 --nosinglewarnassembly:fna-game
 --defaultrooting
 --resilient

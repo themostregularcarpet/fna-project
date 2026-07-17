@@ -8,7 +8,7 @@ public abstract class Scene : IDisposable
 {
     public Tilemap Tilemap;
     protected Actor CameraHandler;
-
+    
     bool isDisposed = false;
 
     public Scene() {}
@@ -23,7 +23,7 @@ public abstract class Scene : IDisposable
     public virtual void Draw() 
     {
         Tilemap.Draw();
-        ActorManager.DrawAllActors();
+        ActorManager.DrawActors();
     }
 
     public virtual void Update(GameTime gameTime) 

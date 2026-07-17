@@ -22,6 +22,7 @@
 
 	<ItemGroup>
 		<ProjectReference Include="..\FNA\FNA.Core.csproj" />
+		<ProjectReference Include="..\FontStashSharp\src\XNA\FontStashSharp.FNA.Core.csproj" />
 		<PackageReference Include="System.Text.Json" Version="8.0.5" />
 	</ItemGroup>
 

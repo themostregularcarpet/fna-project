@@ -1,12 +1,17 @@
 {
   "version": 2,
-  "dgSpecHash": "PzINHsZoiTI=",
+  "dgSpecHash": "44mEMtS+L4E=",
   "success": true,
-  "projectFilePath": "C:\\Users\\carpet\\Documents\\fna-game\\fna-game\\fna-game.csproj",
+  "projectFilePath": "C:\\Users\\carpet\\Documents\\GitHub\\game-project\\fna-game\\fna-game.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\carpet\\.nuget\\packages\\cyotek.drawing.bitmapfont\\2.0.4\\cyotek.drawing.bitmapfont.2.0.4.nupkg.sha512",
+    "C:\\Users\\carpet\\.nuget\\packages\\fontstashsharp.base\\1.2.3\\fontstashsharp.base.1.2.3.nupkg.sha512",
+    "C:\\Users\\carpet\\.nuget\\packages\\fontstashsharp.rasterizers.stbtruetypesharp\\1.2.3\\fontstashsharp.rasterizers.stbtruetypesharp.1.2.3.nupkg.sha512",
     "C:\\Users\\carpet\\.nuget\\packages\\microsoft.dotnet.ilcompiler\\8.0.28\\microsoft.dotnet.ilcompiler.8.0.28.nupkg.sha512",
     "C:\\Users\\carpet\\.nuget\\packages\\microsoft.net.illink.tasks\\8.0.28\\microsoft.net.illink.tasks.8.0.28.nupkg.sha512",
     "C:\\Users\\carpet\\.nuget\\packages\\runtime.win-x64.microsoft.dotnet.ilcompiler\\8.0.28\\runtime.win-x64.microsoft.dotnet.ilcompiler.8.0.28.nupkg.sha512",
+    "C:\\Users\\carpet\\.nuget\\packages\\stbimagesharp\\2.30.15\\stbimagesharp.2.30.15.nupkg.sha512",
+    "C:\\Users\\carpet\\.nuget\\packages\\stbtruetypesharp\\1.26.12\\stbtruetypesharp.1.26.12.nupkg.sha512",
     "C:\\Users\\carpet\\.nuget\\packages\\system.text.json\\8.0.5\\system.text.json.8.0.5.nupkg.sha512",
     "C:\\Users\\carpet\\.nuget\\packages\\runtime.win-x64.microsoft.dotnet.ilcompiler\\8.0.28\\runtime.win-x64.microsoft.dotnet.ilcompiler.8.0.28.nupkg.sha512"
   ],
