@@ -9,22 +9,18 @@
       "TexturePacker/1.0.0": {
         "dependencies": {
           "FNA": "1.0.0",
-          "Microsoft.DotNet.ILCompiler": "8.0.28",
-          "Microsoft.NET.ILLink.Tasks": "8.0.28",
-          "System.Drawing.Common": "10.0.9",
+          "System.Drawing.Common": "10.0.10",
           "FNA.Reference": "26.6.0.0"
         },
         "runtime": {
           "TexturePacker.dll": {}
         }
       },
-      "Microsoft.DotNet.ILCompiler/8.0.28": {},
-      "Microsoft.NET.ILLink.Tasks/8.0.28": {},
-      "Microsoft.Win32.SystemEvents/10.0.9": {
+      "Microsoft.Win32.SystemEvents/10.0.10": {
         "runtime": {
           "lib/net8.0/Microsoft.Win32.SystemEvents.dll": {
             "assemblyVersion": "10.0.0.0",
-            "fileVersion": "10.0.926.27113"
+            "fileVersion": "10.0.1026.32716"
           }
         },
         "runtimeTargets": {
@@ -32,26 +28,26 @@
             "rid": "win",
             "assetType": "runtime",
             "assemblyVersion": "10.0.0.0",
-            "fileVersion": "10.0.926.27113"
+            "fileVersion": "10.0.1026.32716"
           }
         }
       },
-      "System.Drawing.Common/10.0.9": {
+      "System.Drawing.Common/10.0.10": {
         "dependencies": {
-          "Microsoft.Win32.SystemEvents": "10.0.9"
+          "Microsoft.Win32.SystemEvents": "10.0.10"
         },
         "runtime": {
           "lib/net8.0/System.Drawing.Common.dll": {
             "assemblyVersion": "10.0.0.0",
-            "fileVersion": "10.0.926.27113"
+            "fileVersion": "10.0.1026.32716"
           },
           "lib/net8.0/System.Private.Windows.Core.dll": {
             "assemblyVersion": "10.0.0.0",
-            "fileVersion": "10.0.926.27113"
+            "fileVersion": "10.0.1026.32716"
           },
           "lib/net8.0/System.Private.Windows.GdiPlus.dll": {
             "assemblyVersion": "10.0.0.0",
-            "fileVersion": "10.0.926.27113"
+            "fileVersion": "10.0.1026.32716"
           }
         }
       },
@@ -78,33 +74,19 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Microsoft.DotNet.ILCompiler/8.0.28": {
+    "Microsoft.Win32.SystemEvents/10.0.10": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-nS/bx8GDSjFfmeH80Im0B8k2u4XL6Dnybc2qU1gb+fvwfaTiOcnSxLO530ERi0cgynBzIcodD+lf1CedRPtuIA==",
-      "path": "microsoft.dotnet.ilcompiler/8.0.28",
-      "hashPath": "microsoft.dotnet.ilcompiler.8.0.28.nupkg.sha512"
+      "sha512": "sha512-IY0lTfC2uVwTizjtGgQ03ViwyXGQ9lMDblzB889/HyguAZJ2J8pRrjPown8h2eJe8WFc8nh+BUEsEPkshzizYQ==",
+      "path": "microsoft.win32.systemevents/10.0.10",
+      "hashPath": "microsoft.win32.systemevents.10.0.10.nupkg.sha512"
     },
-    "Microsoft.NET.ILLink.Tasks/8.0.28": {
+    "System.Drawing.Common/10.0.10": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-XMqgVjlLxLqWmEh3c49haXLQwsMNtvo6YscUaqfvEGfg1iA8hnYgkUVq3i9Zu9gKeNKMWiiZKVwZExc/qyEAsQ==",
-      "path": "microsoft.net.illink.tasks/8.0.28",
-      "hashPath": "microsoft.net.illink.tasks.8.0.28.nupkg.sha512"
-    },
-    "Microsoft.Win32.SystemEvents/10.0.9": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-dk5HKolAR9bBxlL4dl6Koaf0s/Q47QApog+/o341LSuvWGW6ig4q5fTsgYG0MrK//l2Slv6mygncMK/8lgXVDg==",
-      "path": "microsoft.win32.systemevents/10.0.9",
-      "hashPath": "microsoft.win32.systemevents.10.0.9.nupkg.sha512"
-    },
-    "System.Drawing.Common/10.0.9": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-ShkEj8jOhklJgrN3SoaVbCcopvqyIgVXHso2/eibQBL7IZxzJjND77UYVlViHqpwPxyQeA67IOut4b41clBkQw==",
-      "path": "system.drawing.common/10.0.9",
-      "hashPath": "system.drawing.common.10.0.9.nupkg.sha512"
+      "sha512": "sha512-R9q9TI//kGavXWTxvaSS9ERj79s+Vm7V7769zEmRbzdrIOJzAnGw+wWSo/JkaVdQfAAefV2V1bWYKCHF7Zs5oQ==",
+      "path": "system.drawing.common/10.0.10",
+      "hashPath": "system.drawing.common.10.0.10.nupkg.sha512"
     },
     "FNA/1.0.0": {
       "type": "project",

@@ -56,7 +56,7 @@ public class Tilemap
     private List<Entity> entities = new List<Entity>();
     private string entityLayerName;
 
-    public Tilemap(string mapName, string tilesetName, string? collisionLayerName, string? entityLayerName)
+    public Tilemap(string mapName, string tilesetName, string collisionLayerName = null, string entityLayerName = null)
     {
         this.collisionLayerName = collisionLayerName;
         this.entityLayerName = entityLayerName;

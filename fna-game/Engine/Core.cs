@@ -4,9 +4,8 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Content;
 using Videogame.Engine.Input;
 using Videogame.Engine.ASS;
-using Videogame.Engine.Audio;
-using Videogame.Engine.Camera;
 using Videogame.Engine.UI;
+using Videogame.Engine.Screen;
 
 public class Core : Game 
 {
@@ -17,8 +16,8 @@ public class Core : Game
     public static new GraphicsDevice GraphicsDevice { get; private set; }
     public static SpriteBatch SpriteBatch { get; private set; }
     public static ContentManager Content { get; private set; }
-    public static Input Input { get; private set; }
     public static Camera Camera { get; private set; }
+    public static Input Input { get; private set; }
     public static Fonts Fonts { get; private set; }
 
     private static Scene s_activeScene;
@@ -26,17 +25,10 @@ public class Core : Game
 
     private const int LOGICAL_WIDTH = 320;
     private const int LOGICAL_HEIGHT = 180;
-    private bool isResizing = false;
-    private RenderTarget2D gameRenderTarget;
-    private int scale, offsetX, offsetY, renderWidth, renderHeight;
-
     private const int UI_LOGICAL_WIDTH = 1280;
     private const int UI_LOGICAL_HEIGHT = 720;
-    private Matrix uiTransformMatrix;
-    public static readonly RasterizerState ScissorState = new RasterizerState
-    {
-        ScissorTestEnable = true
-    };
+
+    private ScreenRenderer screenRenderer;
 
     public Core(int width, int height, string title, bool isFullscreen, bool isVsync, bool isBorderless)
     {
@@ -45,11 +37,14 @@ public class Core : Game
 
         s_instance = this;
 
-        Graphics = new GraphicsDeviceManager(this);
-        Graphics.PreferredBackBufferWidth = width;
-        Graphics.PreferredBackBufferHeight = height;
-        Graphics.IsFullScreen = isFullscreen;
-        Graphics.SynchronizeWithVerticalRetrace = isVsync;
+        Graphics = new GraphicsDeviceManager(this)
+        {
+            PreferredBackBufferWidth = width,
+            PreferredBackBufferHeight = height,
+            IsFullScreen = isFullscreen,
+            SynchronizeWithVerticalRetrace = isVsync,
+        };
+
         Graphics.DeviceReset += OnDeviceReset;
 
         Window.Title = title;
@@ -75,26 +70,21 @@ public class Core : Game
         SpriteBatch = new SpriteBatch(GraphicsDevice);
         Input = new Input();
         Fonts = new Fonts();
-        
         Fonts.Load();
-        AudioManager.Initialize();
         Camera = new Camera(new Vector2(LOGICAL_WIDTH / 2f, LOGICAL_HEIGHT / 2f));
 
         base.Initialize();
 
-        gameRenderTarget = new RenderTarget2D(GraphicsDevice, LOGICAL_WIDTH, LOGICAL_HEIGHT);
-        ApplyIntScaling();
+        screenRenderer = new ScreenRenderer(LOGICAL_WIDTH, LOGICAL_HEIGHT, UI_LOGICAL_WIDTH, UI_LOGICAL_HEIGHT);
     }
 
     protected override void Update(GameTime gameTime)
     {
         Input.Update(gameTime);
-        AudioManager.Update();
 
         if (Input.Keyboard.WasKeyPressed(Controls.Fullscreen))
         {
-            Graphics.IsFullScreen = !Graphics.IsFullScreen;
-			Graphics.ApplyChanges();
+            Graphics.ToggleFullScreen();
         }
 
         if (s_nextScene != null)
@@ -107,7 +97,7 @@ public class Core : Game
 
     protected override void Draw(GameTime gameTime)
     {
-        GraphicsDevice.SetRenderTarget(gameRenderTarget);
+        GraphicsDevice.SetRenderTarget(screenRenderer.GameRenderTarget);
         GraphicsDevice.Clear(Color.Black);
 
         // in-game object related drawings
@@ -121,13 +111,13 @@ public class Core : Game
 
         // render target related drawings
         SpriteBatch.Begin(SpriteSortMode.Deferred, null, SamplerState.PointClamp, null, null);
-        SpriteBatch.Draw(gameRenderTarget, new Rectangle(offsetX, offsetY, renderWidth, renderHeight), Color.White);
+        SpriteBatch.Draw(screenRenderer.GameRenderTarget, new Rectangle(screenRenderer.OffsetX, screenRenderer.OffsetY, screenRenderer.RenderWidth, screenRenderer.RenderHeight), Color.White);
         SpriteBatch.End();
 
-        GraphicsDevice.ScissorRectangle = new Rectangle(offsetX, offsetY, renderWidth, renderHeight);
+        GraphicsDevice.ScissorRectangle = screenRenderer.UiScissorRectangle;
         
         // ui related drawings
-        SpriteBatch.Begin(SpriteSortMode.Deferred, null, SamplerState.LinearClamp, null, ScissorState, null, uiTransformMatrix);
+        SpriteBatch.Begin(SpriteSortMode.Deferred, null, SamplerState.LinearClamp, null, ScreenRenderer.ScissorState, null, screenRenderer.UiTransformMatrix);
         UiManager.DrawUi();
         SpriteBatch.End();
 
@@ -152,40 +142,6 @@ public class Core : Game
         s_activeScene?.Initialize();
     }
 
-    private void OnDeviceReset(object sender, EventArgs e) => ApplyIntScaling();
-    private void OnClientSizeChanged(object sender, EventArgs e) => ApplyIntScaling();
-
-    private void ApplyIntScaling()
-    {
-        if (isResizing) 
-            return;
-            
-        isResizing = true;
-
-        int windowWidth = GraphicsDevice.PresentationParameters.BackBufferWidth;
-        int windowHeight = GraphicsDevice.PresentationParameters.BackBufferHeight;
-
-        int scaleX = windowWidth / LOGICAL_WIDTH;
-        int scaleY = windowHeight / LOGICAL_HEIGHT;
-        int scaleXY = Math.Max(1, Math.Min(scaleX, scaleY));
-
-        scale = scaleXY;
-        renderWidth = LOGICAL_WIDTH * scale;
-        renderHeight = LOGICAL_HEIGHT * scale;
-        offsetX = (windowWidth - renderWidth) / 2;
-        offsetY = (windowHeight - renderHeight) / 2;
-
-        float uiScaleX = (float)renderWidth / UI_LOGICAL_WIDTH;
-        float uiScaleY = (float)renderHeight / UI_LOGICAL_HEIGHT;
-        float uiScale = Math.Min(uiScaleX, uiScaleY);
-
-        int uiRenderWidth = (int)(UI_LOGICAL_WIDTH * uiScale);
-        int uiRenderHeight = (int)(UI_LOGICAL_HEIGHT * uiScale);
-        int uiOffsetX = offsetX + (renderWidth - uiRenderWidth) / 2;
-        int uiOffsetY = offsetY + (renderHeight - uiRenderHeight) / 2;
-
-        uiTransformMatrix = Matrix.CreateScale(uiScale, uiScale, 1) * Matrix.CreateTranslation(uiOffsetX, uiOffsetY, 0);
-
-        isResizing = false;
-    }
+    private void OnDeviceReset(object sender, EventArgs e) => screenRenderer?.UpdateViewport();
+    private void OnClientSizeChanged(object sender, EventArgs e) => screenRenderer?.UpdateViewport();
 }

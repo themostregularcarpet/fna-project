@@ -1,16 +1,13 @@
 using Microsoft.Xna.Framework;
 using Videogame.Engine;
-using Videogame.Engine.Audio;
 using Videogame.Engine.Input;
 using Videogame.Engine.Textures;
-using Videogame.Engine.UI;
 
 namespace Videogame.Game.Actors;
 
 public class Player : Actor
 {
     private TextureAtlas atlas;
-    private float pitch = 0.5f;
 
     public override void Create()
     {
@@ -19,7 +16,7 @@ public class Player : Actor
         atlas = new TextureAtlas("atlas.bin", "atlas_data.json");
         Sprite = new Sprite(atlas, "Sprite-0001", Position);
         Sprite.CenterOrigin();
-        Collider = new Rectangle((int)Position.X, (int)Position.Y, 20, 20);
+        Collider = new Rectangle((int)Position.X - 40, (int)Position.Y - 50, 20, 20);
         base.Create();
     }
 
@@ -37,30 +34,6 @@ public class Player : Actor
         if (Core.Input.Keyboard.IsKeyDown(Controls.Right))  Velocity.X += speed;
 
         Sprite.Rotation += 0.05f;
-
-        if (Core.Input.Keyboard.WasKeyPressed(Microsoft.Xna.Framework.Input.Keys.T)) 
-        {
-            pitch -= 0.1f;
-            pitch = Math.Clamp(pitch, 0f, 1f);
-            Console.WriteLine($"pitch = {pitch}");
-        }
-        if (Core.Input.Keyboard.WasKeyPressed(Microsoft.Xna.Framework.Input.Keys.Y)) 
-        {
-            pitch += 0.1f;
-            pitch = Math.Clamp(pitch, 0f, 1f);
-            Console.WriteLine($"pitch = {pitch}");
-        }
-
-        if (Core.Input.Keyboard.WasKeyPressed(Microsoft.Xna.Framework.Input.Keys.G)) 
-        {
-            var instance = AudioManager.PlayEvent("event:/New Event");
-            AudioManager.SetParameter(instance, "testParam", pitch);
-        }
-
-        if (Core.Input.Keyboard.WasKeyPressed(Microsoft.Xna.Framework.Input.Keys.H))
-        {   
-            Textbox.Create("dialogue.txt", "DIALOGUE_TEST");
-        }
 
         base.Step(gameTime);
     }

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TexturePacker")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8d0f3ad03bb0f1b8fa08c80ef6a834870f85eabc")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+57dd7457fb74cec394d640dcf5c589bdf6a54d18")]
 [assembly: System.Reflection.AssemblyProductAttribute("TexturePacker")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TexturePacker")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

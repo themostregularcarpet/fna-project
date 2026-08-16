@@ -1,5 +1,0 @@
-[DIALOGUE_TEST]
-- hello! this is a dialogue!
-- here you can find these dialogue lines that aren't going to be used any shape or form!
-- i'm just test this thing in order to make everything silky smooth and good
-- okay, i think i'm going to leave you to make more useful dialogue, ciao! <3

@@ -9,15 +9,17 @@ public class Program
 {
     static void Main(string[] args)
     {
+        /*
         if (args.Length < 3)
         {
             Console.WriteLine("<input_folder> <output_image> <output_json>");
             return;
         }
+        */
 
-        string inputFolder = args[0];
-        string outputImage = args[1];
-        string outputJson = args[2];
+        string inputFolder = "../TexturePacker/Assets";
+        string outputImage = "atlas.png";
+        string outputJson = "atlas_json.json";
 
         if (!Directory.Exists(inputFolder))
         {
@@ -53,7 +55,7 @@ public class Program
         {
             atlasSize *= 2;
         }
-        atlasSize = Math.Min(atlasSize, 4096);
+        atlasSize = Math.Min(atlasSize, 8192);
 
         var freeRects = new List<Rectangle> { new Rectangle(0, 0, atlasSize, atlasSize) };
         var busyRects = new List<(string Name, Rectangle Rect)>();
@@ -101,12 +103,7 @@ public class Program
             bmp.Dispose();
         }
 
-        using (var fileStream = File.OpenRead("atlas.png"))
-        using (var outStream = File.Create("atlas.bin"))
-        using (var gzip = new GZipStream(outStream, CompressionLevel.Optimal))
-        {
-            fileStream.CopyTo(gzip);
-        }
+        using (var fileStream = File.OpenRead("atlas.png"));
     }
 
     static (Rectangle freeRect, Rectangle placedRect)? FindBestFit(List<Rectangle> freeRects, int width, int height)

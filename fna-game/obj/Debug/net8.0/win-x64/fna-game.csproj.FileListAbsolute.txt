@@ -63,15 +63,11 @@ C:\Users\carpet\Documents\fna-game\fna-game\bin\Debug\net8.0\win-x64\Content\Aud
 C:\Users\carpet\Documents\fna-game\fna-game\bin\Debug\net8.0\win-x64\Content\Audio\Master.strings.bank
 C:\Users\carpet\Documents\fna-game\fna-game\bin\Debug\net8.0\win-x64\fmod.dll
 C:\Users\carpet\Documents\fna-game\fna-game\bin\Debug\net8.0\win-x64\fmodstudio.dll
-C:\Users\carpet\Documents\GitHub\game-project\fna-game\bin\Debug\net8.0\win-x64\Content\Audio\Master.bank
-C:\Users\carpet\Documents\GitHub\game-project\fna-game\bin\Debug\net8.0\win-x64\Content\Audio\Master.strings.bank
 C:\Users\carpet\Documents\GitHub\game-project\fna-game\bin\Debug\net8.0\win-x64\Content\Graphics\atlas.bin
 C:\Users\carpet\Documents\GitHub\game-project\fna-game\bin\Debug\net8.0\win-x64\Content\Graphics\atlas_data.json
 C:\Users\carpet\Documents\GitHub\game-project\fna-game\bin\Debug\net8.0\win-x64\Content\Graphics\testLevel.json
 C:\Users\carpet\Documents\GitHub\game-project\fna-game\bin\Debug\net8.0\win-x64\Content\Graphics\testTileSet.png
 C:\Users\carpet\Documents\GitHub\game-project\fna-game\bin\Debug\net8.0\win-x64\Content\Graphics\tilemapTest.png
-C:\Users\carpet\Documents\GitHub\game-project\fna-game\bin\Debug\net8.0\win-x64\fmod.dll
-C:\Users\carpet\Documents\GitHub\game-project\fna-game\bin\Debug\net8.0\win-x64\fmodstudio.dll
 C:\Users\carpet\Documents\GitHub\game-project\fna-game\bin\Debug\net8.0\win-x64\fna-game.exe
 C:\Users\carpet\Documents\GitHub\game-project\fna-game\bin\Debug\net8.0\win-x64\fna-game.deps.json
 C:\Users\carpet\Documents\GitHub\game-project\fna-game\bin\Debug\net8.0\win-x64\fna-game.runtimeconfig.json
@@ -99,3 +95,5 @@ C:\Users\carpet\Documents\GitHub\game-project\fna-game\bin\Debug\net8.0\win-x64\
 C:\Users\carpet\Documents\GitHub\game-project\fna-game\bin\Debug\net8.0\win-x64\Content\Fonts\mainFont.otf
 C:\Users\carpet\Documents\GitHub\game-project\fna-game\bin\Debug\net8.0\win-x64\FontStashSharp.FNA.dll
 C:\Users\carpet\Documents\GitHub\game-project\fna-game\bin\Debug\net8.0\win-x64\FontStashSharp.FNA.pdb
+C:\Users\carpet\Documents\GitHub\game-project\fna-game\bin\Debug\net8.0\win-x64\Content\Graphics\atlas.png
+C:\Users\carpet\Documents\GitHub\game-project\fna-game\bin\Debug\net8.0\win-x64\Content\Graphics\atlas_json.json

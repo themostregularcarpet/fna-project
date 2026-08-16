@@ -11,9 +11,6 @@
         "dependencies": {
           "FNA": "1.0.0",
           "FontStashSharp.FNA": "1.5.6",
-          "Microsoft.DotNet.ILCompiler": "8.0.28",
-          "Microsoft.NET.ILLink.Tasks": "8.0.28",
-          "System.Text.Json": "8.0.5",
           "FNA.Reference": "26.6.0.0",
           "FontStashSharp.FNA.Reference": "1.5.6.0"
         },
@@ -49,13 +46,6 @@
           }
         }
       },
-      "Microsoft.DotNet.ILCompiler/8.0.28": {
-        "dependencies": {
-          "runtime.win-x64.Microsoft.DotNet.ILCompiler": "8.0.28"
-        }
-      },
-      "Microsoft.NET.ILLink.Tasks/8.0.28": {},
-      "runtime.win-x64.Microsoft.DotNet.ILCompiler/8.0.28": {},
       "StbImageSharp/2.30.15": {
         "runtime": {
           "lib/netstandard2.0/StbImageSharp.dll": {
@@ -72,7 +62,6 @@
           }
         }
       },
-      "System.Text.Json/8.0.5": {},
       "FNA/1.0.0": {
         "runtime": {
           "FNA.dll": {
@@ -139,27 +128,6 @@
       "path": "fontstashsharp.rasterizers.stbtruetypesharp/1.2.3",
       "hashPath": "fontstashsharp.rasterizers.stbtruetypesharp.1.2.3.nupkg.sha512"
     },
-    "Microsoft.DotNet.ILCompiler/8.0.28": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-nS/bx8GDSjFfmeH80Im0B8k2u4XL6Dnybc2qU1gb+fvwfaTiOcnSxLO530ERi0cgynBzIcodD+lf1CedRPtuIA==",
-      "path": "microsoft.dotnet.ilcompiler/8.0.28",
-      "hashPath": "microsoft.dotnet.ilcompiler.8.0.28.nupkg.sha512"
-    },
-    "Microsoft.NET.ILLink.Tasks/8.0.28": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-XMqgVjlLxLqWmEh3c49haXLQwsMNtvo6YscUaqfvEGfg1iA8hnYgkUVq3i9Zu9gKeNKMWiiZKVwZExc/qyEAsQ==",
-      "path": "microsoft.net.illink.tasks/8.0.28",
-      "hashPath": "microsoft.net.illink.tasks.8.0.28.nupkg.sha512"
-    },
-    "runtime.win-x64.Microsoft.DotNet.ILCompiler/8.0.28": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-cSZJq9NOyey77EI1M/N324aScmQLBonWS004IF2gWldIZMr/yYzYLIZws84VftwOatRjhEV4zGve4KISN95GTg==",
-      "path": "runtime.win-x64.microsoft.dotnet.ilcompiler/8.0.28",
-      "hashPath": "runtime.win-x64.microsoft.dotnet.ilcompiler.8.0.28.nupkg.sha512"
-    },
     "StbImageSharp/2.30.15": {
       "type": "package",
       "serviceable": true,
@@ -173,13 +141,6 @@
       "sha512": "sha512-hCc6/OsfcPa5VsLECcEU2m78WOshBrKwK42nAodSm9Z5wH68f7n66SoiRLCdGCkDaqbWz2TlX4zYHIjogj1HJA==",
       "path": "stbtruetypesharp/1.26.12",
       "hashPath": "stbtruetypesharp.1.26.12.nupkg.sha512"
-    },
-    "System.Text.Json/8.0.5": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-0f1B50Ss7rqxXiaBJyzUu9bWFOO2/zSlifZ/UNMdiIpDYe4cY4LQQicP4nirK1OS31I43rn062UIJ1Q9bpmHpg==",
-      "path": "system.text.json/8.0.5",
-      "hashPath": "system.text.json.8.0.5.nupkg.sha512"
     },
     "FNA/1.0.0": {
       "type": "project",

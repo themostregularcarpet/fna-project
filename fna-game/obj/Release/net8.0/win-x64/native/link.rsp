@@ -6,18 +6,15 @@
 /LIBPATH:"C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\lib\um\x64"
 /LIBPATH:"C:\Program Files (x86)\Windows Kits\10\lib\10.0.26100.0\ucrt\x64"
 /LIBPATH:"C:\Program Files (x86)\Windows Kits\10\\lib\10.0.26100.0\\um\x64"
-"SDL3.lib"
-"FNA3D.lib"
-"FAudio.lib"
-"libtheorafile.lib"
-"fmod_vc.lib"
-"fmodstudio_vc.lib"
-"C:\Users\carpet\.nuget\packages\runtime.win-x64.microsoft.dotnet.ilcompiler\8.0.28\sdk\bootstrapper.obj"
-"C:\Users\carpet\.nuget\packages\runtime.win-x64.microsoft.dotnet.ilcompiler\8.0.28\sdk\Runtime.WorkstationGC.lib"
-"C:\Users\carpet\.nuget\packages\runtime.win-x64.microsoft.dotnet.ilcompiler\8.0.28\sdk\eventpipe-disabled.lib"
-"C:\Users\carpet\.nuget\packages\runtime.win-x64.microsoft.dotnet.ilcompiler\8.0.28\sdk\Runtime.VxsortEnabled.lib"
-"C:\Users\carpet\.nuget\packages\runtime.win-x64.microsoft.dotnet.ilcompiler\8.0.28\sdk\System.Globalization.Native.Aot.lib"
-"C:\Users\carpet\.nuget\packages\runtime.win-x64.microsoft.dotnet.ilcompiler\8.0.28\sdk\System.IO.Compression.Native.Aot.lib"
+"C:\Users\carpet\Documents\GitHub\game-project\fna-game\libs\SDL3.lib"
+"C:\Users\carpet\Documents\GitHub\game-project\fna-game\libs\FNA3D.lib"
+"C:\Users\carpet\Documents\GitHub\game-project\fna-game\libs\FAudio.lib"
+"C:\Users\carpet\.nuget\packages\runtime.win-x64.microsoft.dotnet.ilcompiler\8.0.30\sdk\bootstrapper.obj"
+"C:\Users\carpet\.nuget\packages\runtime.win-x64.microsoft.dotnet.ilcompiler\8.0.30\sdk\Runtime.WorkstationGC.lib"
+"C:\Users\carpet\.nuget\packages\runtime.win-x64.microsoft.dotnet.ilcompiler\8.0.30\sdk\eventpipe-disabled.lib"
+"C:\Users\carpet\.nuget\packages\runtime.win-x64.microsoft.dotnet.ilcompiler\8.0.30\sdk\Runtime.VxsortEnabled.lib"
+"C:\Users\carpet\.nuget\packages\runtime.win-x64.microsoft.dotnet.ilcompiler\8.0.30\sdk\System.Globalization.Native.Aot.lib"
+"C:\Users\carpet\.nuget\packages\runtime.win-x64.microsoft.dotnet.ilcompiler\8.0.30\sdk\System.IO.Compression.Native.Aot.lib"
 "advapi32.lib"
 "bcrypt.lib"
 "crypt32.lib"
@@ -38,7 +35,7 @@
 /INCREMENTAL:NO
 /SUBSYSTEM:CONSOLE
 /ENTRY:wmainCRTStartup /NOEXP /NOIMPLIB
-/NATVIS:"C:\Users\carpet\.nuget\packages\microsoft.dotnet.ilcompiler\8.0.28\build\NativeAOT.natvis"
+/NATVIS:"C:\Users\carpet\.nuget\packages\microsoft.dotnet.ilcompiler\8.0.30\build\NativeAOT.natvis"
 /NODEFAULTLIB:libucrt.lib
 /DEFAULTLIB:ucrt.lib
 /OPT:REF

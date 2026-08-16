@@ -606,8 +606,6 @@ C:\Users\carpet\Documents\GitHub\game-project\fna-game\bin\Release\net8.0\win-x6
 C:\Users\carpet\Documents\GitHub\game-project\fna-game\bin\Release\net8.0\win-x64\Content\Graphics\testLevel.json
 C:\Users\carpet\Documents\GitHub\game-project\fna-game\bin\Release\net8.0\win-x64\Content\Graphics\testTileSet.png
 C:\Users\carpet\Documents\GitHub\game-project\fna-game\bin\Release\net8.0\win-x64\Content\Graphics\tilemapTest.png
-C:\Users\carpet\Documents\GitHub\game-project\fna-game\bin\Release\net8.0\win-x64\fmod.dll
-C:\Users\carpet\Documents\GitHub\game-project\fna-game\bin\Release\net8.0\win-x64\fmodstudio.dll
 C:\Users\carpet\Documents\GitHub\game-project\fna-game\bin\Release\net8.0\win-x64\Content\Audio\Master.bank
 C:\Users\carpet\Documents\GitHub\game-project\fna-game\bin\Release\net8.0\win-x64\Content\Audio\Master.strings.bank
 C:\Users\carpet\Documents\GitHub\game-project\fna-game\bin\Release\net8.0\win-x64\fna-game.deps.json
@@ -792,7 +790,6 @@ C:\Users\carpet\Documents\GitHub\game-project\fna-game\bin\Release\net8.0\win-x6
 C:\Users\carpet\Documents\GitHub\game-project\fna-game\bin\Release\net8.0\win-x64\hostfxr.dll
 C:\Users\carpet\Documents\GitHub\game-project\fna-game\bin\Release\net8.0\win-x64\hostpolicy.dll
 C:\Users\carpet\Documents\GitHub\game-project\fna-game\bin\Release\net8.0\win-x64\mscordaccore.dll
-C:\Users\carpet\Documents\GitHub\game-project\fna-game\bin\Release\net8.0\win-x64\mscordaccore_amd64_amd64_8.0.2826.26413.dll
 C:\Users\carpet\Documents\GitHub\game-project\fna-game\bin\Release\net8.0\win-x64\mscordbi.dll
 C:\Users\carpet\Documents\GitHub\game-project\fna-game\bin\Release\net8.0\win-x64\mscorrc.dll
 C:\Users\carpet\Documents\GitHub\game-project\fna-game\bin\Release\net8.0\win-x64\msquic.dll
@@ -818,3 +815,6 @@ C:\Users\carpet\Documents\GitHub\game-project\fna-game\bin\Release\net8.0\win-x6
 C:\Users\carpet\Documents\GitHub\game-project\fna-game\bin\Release\net8.0\win-x64\StbTrueTypeSharp.dll
 C:\Users\carpet\Documents\GitHub\game-project\fna-game\bin\Release\net8.0\win-x64\FontStashSharp.FNA.dll
 C:\Users\carpet\Documents\GitHub\game-project\fna-game\bin\Release\net8.0\win-x64\FontStashSharp.FNA.pdb
+C:\Users\carpet\Documents\GitHub\game-project\fna-game\bin\Release\net8.0\win-x64\Content\Graphics\atlas.png
+C:\Users\carpet\Documents\GitHub\game-project\fna-game\bin\Release\net8.0\win-x64\Content\Graphics\atlas_json.json
+C:\Users\carpet\Documents\GitHub\game-project\fna-game\bin\Release\net8.0\win-x64\mscordaccore_amd64_amd64_8.0.3026.36720.dll

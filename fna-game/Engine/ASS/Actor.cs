@@ -82,7 +82,7 @@ public abstract class Actor
 
     public bool MovePixel(Point sign)
 	{
-		var offsetRect = new Rectangle((int)Position.X + sign.X - (int)Sprite?.Origin.X, (int)Position.Y + sign.Y - (int)Sprite?.Origin.X,
+		var offsetRect = new Rectangle((int)Position.X + sign.X - (int)Sprite?.Origin.X, (int)Position.Y + sign.Y - (int)Sprite?.Origin.Y,
          Collider.Width, Collider.Height);
 
         foreach (var actor in ActorManager.Actors)

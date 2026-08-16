@@ -1,5 +1,5 @@
 using Microsoft.Xna.Framework;
-using Videogame.Engine.Camera;
+using Videogame.Engine.Screen;
 
 namespace Videogame.Engine.Cutscene;
 
