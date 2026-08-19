@@ -3,7 +3,7 @@ using Videogame.Engine.Input;
 using Videogame.Engine.Textures;
 using Microsoft.Xna.Framework;
 
-namespace Engine.Entities;
+namespace Videogame.Entities;
 
 public class Player : Entity
 {

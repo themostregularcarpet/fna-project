@@ -1,8 +1,8 @@
 using Microsoft.Xna.Framework;
 
-namespace Videogame.Engine.Screen;
+namespace Videogame.Engine.CBS;
 
-public class Camera
+public class CameraComponent
 {
     private Vector2 position;
     private Vector2 smoothPosition;
@@ -18,7 +18,7 @@ public class Camera
     public float Zoom { get; set; } = 1f;
     public float Rotation { get; set; } = 0f;
 
-    public Camera(Vector2 origin)
+    public CameraComponent(Vector2 origin)
     {
         Origin = origin;
         position = Vector2.Zero;

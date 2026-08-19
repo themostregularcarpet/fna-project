@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("fna-game")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2ccfdb31854bf08a6d95b95955bc2249b37c5466")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d23e2fbb14986003e179ae62fffa757a30a592e1")]
 [assembly: System.Reflection.AssemblyProductAttribute("fna-game")]
 [assembly: System.Reflection.AssemblyTitleAttribute("fna-game")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

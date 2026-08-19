@@ -1,31 +1,40 @@
 using Videogame.Engine.CBS;
-using Engine.Entities;
+using Videogame.Entities;
 using Microsoft.Xna.Framework;
+using Videogame.Engine.Textures;
 
-namespace MainGame.Scenes;
+namespace Videogame.Scenes;
 
 public class MainScene : Scene
 {    
     private Player player;
     private Enemy enemy;
-
+    private Tilemap tilemap;
 
     public override void Init()
     {
         base.Init();
-        player = new Player();
-        AddEntity(player);
-        enemy = new Enemy();
-        AddEntity(enemy);
+        tilemap = new Tilemap("testLevel", "testTileSet", "collision", "entities");
     }
 
     public override void Update(GameTime gameTime)
     {
         base.Update(gameTime);
+
+        if (Core.Input.Keyboard.WasKeyPressed(Microsoft.Xna.Framework.Input.Keys.Z))
+        {
+            foreach (var e in Entities)
+            {
+                System.Console.WriteLine(e);
+            }
+        }
+
+        //Camera.Position = player.GetComponent<TransformComponent>().Position;
     }
 
     public override void Draw()
     {
         base.Draw();
+        tilemap.Draw();
     }
 }

@@ -2,7 +2,7 @@ using Videogame.Engine.CBS;
 using Videogame.Engine.Textures;
 using Microsoft.Xna.Framework;
 
-namespace Engine.Entities;
+namespace Videogame.Entities;
 
 public class Enemy : Entity
 {

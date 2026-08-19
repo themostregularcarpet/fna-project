@@ -1,4 +1,5 @@
 using Microsoft.Xna.Framework;
+using Videogame.Engine.CBS;
 using Videogame.Engine.Screen;
 
 namespace Videogame.Engine.Cutscene;
@@ -16,7 +17,7 @@ public class MoveCameraCommand : TimedCommand
     public override void Start()
     {
         base.Start();
-        start = Core.Camera.Position;
+        //start = CameraComponent.Position;
     }
 
     public override void Update(GameTime gameTime)
@@ -24,6 +25,6 @@ public class MoveCameraCommand : TimedCommand
         base.Update(gameTime);
         
         float t = Elapsed / Duration;
-        Core.Camera.Position = Vector2.Lerp(start, end, t);
+        //Core.Camera.Position = Vector2.Lerp(start, end, t);
     }
 }

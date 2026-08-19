@@ -1,4 +1,4 @@
-﻿using MainGame.Scenes;
+﻿using Videogame.Scenes;
 using Microsoft.Xna.Framework;
 
 namespace Videogame;

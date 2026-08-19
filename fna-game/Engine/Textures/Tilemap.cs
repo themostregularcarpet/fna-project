@@ -2,6 +2,8 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
+using Videogame.Engine.CBS;
+using System.Net.WebSockets;
 
 namespace Videogame.Engine.Textures;
 
@@ -53,6 +55,7 @@ public class Tilemap
     private List<Rectangle> collisionRects = new List<Rectangle>();
 
     private List<TilemapEntity> entities = new List<TilemapEntity>();
+    private List<Entity> createdEntities = new List<Entity>();
     private string entityLayerName;
 
     public Tilemap(string mapName, string tilesetName, string collisionLayerName = null, string entityLayerName = null)
@@ -121,14 +124,22 @@ public class Tilemap
 
         var entityLayer = level.Layers.FirstOrDefault(l => l.Name == entityLayerName);
         if (entityLayer != null)
+        {
             entities = entityLayer.Entities ?? new List<TilemapEntity>();
-        else
-            entities = new List<TilemapEntity>();
+        }
 
         foreach (var entity in entities)
         {
-            var position = new Vector2(entity.X, entity.Y);
-          //  ActorManager.CreateActorByName(entity.Name, position);
+            var createdEntity = Scene.AddEntity(entity.Name);
+            createdEntities.Add(createdEntity);
+            foreach (var e in createdEntities)
+            {
+                var transform = e.GetComponent<TransformComponent>();
+                if (transform != null)
+                {
+                    transform.Position = new Vector2(entity.X, entity.Y);
+                }
+            }
         }
     }
 
@@ -158,6 +169,19 @@ public class Tilemap
                             }
                         }
                     }
+                }
+            }
+            else
+            {
+                foreach (var e in createdEntities)
+                {
+                    System.Console.WriteLine(e);
+                    var drawableComponent = e.GetComponent<SpriteComponent>();
+
+                    if (drawableComponent != null)
+                    {
+                        drawableComponent?.Draw();
+                    }  
                 }
             }
         }

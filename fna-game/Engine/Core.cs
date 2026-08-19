@@ -7,8 +7,6 @@ using Videogame.Engine.UI;
 using Videogame.Engine.Screen;
 using Videogame.Engine.Textures;
 using Videogame.Engine.CBS;
-using System.Text.Json.Serialization;
-using System.Runtime.CompilerServices;
 
 public class Core : Game 
 {
@@ -19,10 +17,9 @@ public class Core : Game
     public static new GraphicsDevice GraphicsDevice { get; private set; }
     public static SpriteBatch SpriteBatch { get; private set; }
     public static ContentManager Content { get; private set; }
-    public static Camera Camera { get; private set; }
-    public static TextureAtlas Atlas { get; set; }
     public static Input Input { get; private set; }
     public static Fonts Fonts { get; private set; }
+    public static TextureAtlas Atlas { get; set; }
 
     private const int LOGICAL_WIDTH = 320;
     private const int LOGICAL_HEIGHT = 180;
@@ -71,7 +68,6 @@ public class Core : Game
         GraphicsDevice = base.GraphicsDevice;
         SpriteBatch = new SpriteBatch(GraphicsDevice);
         Input = new Input();
-        Camera = new Camera(new Vector2(LOGICAL_WIDTH / 2f, LOGICAL_HEIGHT / 2f));
         Atlas = new TextureAtlas();
         Atlas.LoadAtlas("atlas.png", "atlas_data.json");
 
@@ -100,7 +96,7 @@ public class Core : Game
         GraphicsDevice.Clear(Color.Black);
 
         // in-game object related drawings
-        SpriteBatch.Begin(SpriteSortMode.Deferred, null, SamplerState.PointClamp, null, null, null, Camera.GetViewMatrix());
+        SpriteBatch.Begin(SpriteSortMode.Deferred, null, SamplerState.PointClamp, null, null, null, currScene?.Camera?.GetViewMatrix() ?? Matrix.Identity);
         currScene?.Draw();
         SpriteBatch.End();
 
