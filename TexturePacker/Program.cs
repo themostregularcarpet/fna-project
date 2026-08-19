@@ -19,7 +19,7 @@ public class Program
 
         string inputFolder = "../TexturePacker/Assets";
         string outputImage = "atlas.png";
-        string outputJson = "atlas_json.json";
+        string outputJson = "atlas_data.json";
 
         if (!Directory.Exists(inputFolder))
         {

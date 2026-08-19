@@ -1,20 +1,22 @@
+using Videogame.Engine.CBS;
+using Engine.Entities;
 using Microsoft.Xna.Framework;
-using Videogame.Engine;
-using Videogame.Game.Actors;
-using Videogame.Engine.ASS;
-using Videogame.Engine.Textures;
-using FontStashSharp;
 
-namespace Videogame.Game.Scenes;
+namespace MainGame.Scenes;
 
 public class MainScene : Scene
-{
-    public override void Initialize()
-    {
-        base.Initialize();
-        ActorManager.CreateActor<Square>();
-        Tilemap = new Tilemap("testLevel", "testTileSet", "collision", "entities");
+{    
+    private Player player;
+    private Enemy enemy;
 
+
+    public override void Init()
+    {
+        base.Init();
+        player = new Player();
+        AddEntity(player);
+        enemy = new Enemy();
+        AddEntity(enemy);
     }
 
     public override void Update(GameTime gameTime)

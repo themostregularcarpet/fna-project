@@ -25,10 +25,10 @@ public class Layer
     public int GridCellsX { get; set; }
     public int GridCellsY { get; set; }
     public List<int> Data { get; set; }
-    public List<Entity> Entities { get; set; }
+    public List<TilemapEntity> Entities { get; set; }
 }
 
-public class Entity
+public class TilemapEntity
 {
     public string Name { get; set; }
     public int X { get; set; }
@@ -40,7 +40,6 @@ public class Tilemap
     public int RoomWidth => levelWidth * tileWidth;
     public int RoomHeight => levelHeight * tileHeight;
 
-    private int[,] tiles;
     private int levelWidth;
     private int levelHeight;
     private int tileWidth;
@@ -53,7 +52,7 @@ public class Tilemap
     private List<Rectangle> tileRects;
     private List<Rectangle> collisionRects = new List<Rectangle>();
 
-    private List<Entity> entities = new List<Entity>();
+    private List<TilemapEntity> entities = new List<TilemapEntity>();
     private string entityLayerName;
 
     public Tilemap(string mapName, string tilesetName, string collisionLayerName = null, string entityLayerName = null)
@@ -118,18 +117,18 @@ public class Tilemap
                 }
             }
         }
-        Actor.TileRects = collisionRects;
+        //Actor.TileRects = collisionRects;
 
         var entityLayer = level.Layers.FirstOrDefault(l => l.Name == entityLayerName);
         if (entityLayer != null)
-            entities = entityLayer.Entities ?? new List<Entity>();
+            entities = entityLayer.Entities ?? new List<TilemapEntity>();
         else
-            entities = new List<Entity>();
+            entities = new List<TilemapEntity>();
 
         foreach (var entity in entities)
         {
             var position = new Vector2(entity.X, entity.Y);
-            ActorManager.CreateActorByName(entity.Name, position);
+          //  ActorManager.CreateActorByName(entity.Name, position);
         }
     }
 

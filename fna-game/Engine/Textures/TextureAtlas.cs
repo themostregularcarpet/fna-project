@@ -1,79 +1,67 @@
-using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework;
-using System.IO.Compression;
+using System.Reflection;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace Videogame.Engine.Textures;
 
-[JsonSerializable(typeof(Dictionary<string, SpriteData>))]
-public partial class AtlasDataContext : JsonSerializerContext
+[JsonSerializable(typeof(Dictionary<string, Dictionary<string, int>>))]
+public partial class AtlasJsonContext : JsonSerializerContext {}
+
+public class TextureAtlas
 {
-}
+    private Texture2D _atlasTexture;
+    private Dictionary<string, Rectangle> _spriteRects;
 
-public struct SpriteData
-{
-    public int X { get; set; }
-    public int Y { get; set; }
-    public int Width { get; set; }
-    public int Height { get; set; }
-}
-
-public class TextureAtlas : IDisposable
-{
-    private Texture2D atlas;
-    private Dictionary<string, SpriteData> spritesInfo;
-    private List<Rectangle> tileRects;
-    
-    private bool disposed = false;
-
-    public TextureAtlas(string atlasName, string jsonName)
+    public TextureAtlas()
     {
-        byte[] atlasBytes = Decompress(atlasName);
-        using var memStream = new MemoryStream(atlasBytes);
-        atlas = Texture2D.FromStream(Core.GraphicsDevice, memStream);
-
-        string jsonPath = Path.Combine(Core.Content.RootDirectory, "Graphics", jsonName);
-        string json = File.ReadAllText(jsonPath);
-
-        spritesInfo = JsonSerializer.Deserialize(json, AtlasDataContext.Default.DictionaryStringSpriteData);
+        Core.Atlas = this;
     }
 
-    private static byte[] Decompress(string fileName)
+    public void LoadAtlas(string atlasName, string jsonName)
     {
-        using var fs = File.OpenRead(Path.Combine(Core.Content.RootDirectory, "Graphics", fileName));
-        using var gzip = new GZipStream(fs, CompressionMode.Decompress);
-        using var output = new MemoryStream();
-        gzip.CopyTo(output);
-        return output.ToArray();
-    }
+        string atlasPath = "fna-game.Content.Graphics." + atlasName;
+        string jsonPath = "fna-game.Content.Graphics." + jsonName;
 
-    public Rectangle GetRect(string name)
-    {
-        var data = spritesInfo[name];
-        return new Rectangle(data.X, data.Y, data.Width, data.Height);
-    }
-
-    public Texture2D GetAtlas() => atlas;
-
-    public void Dispose()
-    {
-        Dispose(true);
-        GC.SuppressFinalize(this);
-    }
-
-    protected virtual void Dispose(bool disposing)
-    {
-        if (!disposed)
+        using (var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream(atlasPath))
         {
-            if (disposing)
+            if (stream == null)
             {
-                atlas?.Dispose();
-                spritesInfo?.Clear();
-                spritesInfo = null;
+                throw new FileNotFoundException($"{atlasPath} file was not found!");
+            }
+            _atlasTexture = Texture2D.FromStream(Core.GraphicsDevice, stream);
+        }
+
+        using (var jsonStream = Assembly.GetExecutingAssembly().GetManifestResourceStream(jsonPath))
+        {
+            if (jsonStream == null)
+            {
+                throw new FileNotFoundException($"{jsonPath} file was not found!");
             }
 
-            disposed = true;
+            using var reader = new StreamReader(jsonStream);
+            var json = reader.ReadToEnd();
+            var dict = JsonSerializer.Deserialize(json, AtlasJsonContext.Default.DictionaryStringDictionaryStringInt32);
+
+            _spriteRects = dict.ToDictionary(kv => kv.Key, kv => new Rectangle(kv.Value["X"], kv.Value["Y"], kv.Value["Width"], kv.Value["Height"]));
         }
+    }
+
+    public Rectangle GetSpriteRect(string name)
+    {
+        if (_spriteRects.TryGetValue(name, out var rect))
+        {
+            return rect;
+        }
+        
+        throw new Exception($"sprite {name} was not found!");
+    }
+
+    public void DrawSprite(string name, SpriteOptions spriteOptions)
+    {
+        var rect = GetSpriteRect(name);
+        Core.SpriteBatch.Draw(_atlasTexture, spriteOptions.Position, rect, spriteOptions.Color, spriteOptions.Rotation, spriteOptions.Origin,
+        spriteOptions.Scale, spriteOptions.SpriteEffects, spriteOptions.LayerDepth);
     }
 }

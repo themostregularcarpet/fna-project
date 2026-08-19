@@ -2,10 +2,10 @@
 cd TexturePacker
 dotnet run
 
-cd ..
+move "atlas.png" "..\fna-game\Content\Graphics"
+move "atlas_data.json" "..\fna-game\Content\Graphics"
 
-move "C:\Users\carpet\Documents\GitHub\game-project\TexturePacker\atlas.png" "C:\Users\carpet\Documents\GitHub\game-project\fna-game\Content\Graphics"
-move "C:\Users\carpet\Documents\GitHub\game-project\TexturePacker\atlas_json.json" "C:\Users\carpet\Documents\GitHub\game-project\fna-game\Content\Graphics"
+cd ..
 
 cd fna-game
 

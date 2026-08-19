@@ -1,5 +1,5 @@
-﻿using Microsoft.Xna.Framework;
-using Videogame.Game.Scenes;
+﻿using MainGame.Scenes;
+using Microsoft.Xna.Framework;
 
 namespace Videogame;
 

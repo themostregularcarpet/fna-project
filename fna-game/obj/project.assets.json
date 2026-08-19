@@ -1,7 +1,7 @@
 {
   "version": 4,
   "targets": {
-    "net8.0": {
+    "net9.0": {
       "Cyotek.Drawing.BitmapFont/2.0.4": {
         "type": "package",
         "compile": {
@@ -37,13 +37,13 @@
           "lib/netstandard2.0/FontStashSharp.Rasterizers.StbTrueTypeSharp.dll": {}
         }
       },
-      "Microsoft.DotNet.ILCompiler/8.0.30": {
+      "Microsoft.DotNet.ILCompiler/9.0.19": {
         "type": "package",
         "build": {
           "build/Microsoft.DotNet.ILCompiler.props": {}
         }
       },
-      "Microsoft.NET.ILLink.Tasks/8.0.30": {
+      "Microsoft.NET.ILLink.Tasks/9.0.19": {
         "type": "package",
         "build": {
           "build/Microsoft.NET.ILLink.Tasks.props": {}
@@ -111,7 +111,7 @@
         }
       }
     },
-    "net8.0/win-x64": {
+    "net9.0/win-x64": {
       "Cyotek.Drawing.BitmapFont/2.0.4": {
         "type": "package",
         "compile": {
@@ -147,22 +147,22 @@
           "lib/netstandard2.0/FontStashSharp.Rasterizers.StbTrueTypeSharp.dll": {}
         }
       },
-      "Microsoft.DotNet.ILCompiler/8.0.30": {
+      "Microsoft.DotNet.ILCompiler/9.0.19": {
         "type": "package",
         "dependencies": {
-          "runtime.win-x64.Microsoft.DotNet.ILCompiler": "8.0.30"
+          "runtime.win-x64.Microsoft.DotNet.ILCompiler": "9.0.19"
         },
         "build": {
           "build/Microsoft.DotNet.ILCompiler.props": {}
         }
       },
-      "Microsoft.NET.ILLink.Tasks/8.0.30": {
+      "Microsoft.NET.ILLink.Tasks/9.0.19": {
         "type": "package",
         "build": {
           "build/Microsoft.NET.ILLink.Tasks.props": {}
         }
       },
-      "runtime.win-x64.Microsoft.DotNet.ILCompiler/8.0.30": {
+      "runtime.win-x64.Microsoft.DotNet.ILCompiler/9.0.19": {
         "type": "package"
       },
       "StbImageSharp/2.30.15": {
@@ -293,10 +293,10 @@
         "lib/netstandard2.0/FontStashSharp.Rasterizers.StbTrueTypeSharp.dll"
       ]
     },
-    "Microsoft.DotNet.ILCompiler/8.0.30": {
-      "sha512": "7AgAFLRwWNxvsB+1+1BNLqaUEgDQTn5fYCf7XuSNTmQkUxw22iZD7G5QD5dSXszOLTnp7RnY322ZTMWag8N8wg==",
+    "Microsoft.DotNet.ILCompiler/9.0.19": {
+      "sha512": "/QAaUyMeBCQry8qPGrRykmKswWYPdy+JDU8L+xHbjBu66uFtk/P+9aZXzIimWHiYIaK6cQU5Yu73bfiHRYbMOQ==",
       "type": "package",
-      "path": "microsoft.dotnet.ilcompiler/8.0.30",
+      "path": "microsoft.dotnet.ilcompiler/9.0.19",
       "hasTools": true,
       "files": [
         ".nupkg.metadata",
@@ -315,18 +315,17 @@
         "build/NativeAOT.natvis",
         "build/WindowsAPIs.txt",
         "build/findvcvarsall.bat",
-        "microsoft.dotnet.ilcompiler.8.0.30.nupkg.sha512",
+        "microsoft.dotnet.ilcompiler.9.0.19.nupkg.sha512",
         "microsoft.dotnet.ilcompiler.nuspec",
         "runtime.json",
         "tools/netstandard/ILCompiler.Build.Tasks.deps.json",
-        "tools/netstandard/ILCompiler.Build.Tasks.dll",
-        "tools/netstandard/ILCompiler.Build.Tasks.pdb"
+        "tools/netstandard/ILCompiler.Build.Tasks.dll"
       ]
     },
-    "Microsoft.NET.ILLink.Tasks/8.0.30": {
-      "sha512": "SfmwuZjUPBTEoBMAsXZ/hWkaEK9oL+Y/UtAx7N6RyWHfcMt9J0ExrNPuOgTyPbCXIyiTBFsxFNrPLEZNPmJcvA==",
+    "Microsoft.NET.ILLink.Tasks/9.0.19": {
+      "sha512": "I9GkKrCVjzxGU1hsKSurOW6P/ABPPHARfc/MTnzIgDb8YjJ/votxKN2z7K+J3DvlQXGH0O7KqdtBseRj8j7eNQ==",
       "type": "package",
-      "path": "microsoft.net.illink.tasks/8.0.30",
+      "path": "microsoft.net.illink.tasks/9.0.19",
       "hasTools": true,
       "files": [
         ".nupkg.metadata",
@@ -340,7 +339,7 @@
         "build/Microsoft.NET.ILLink.Analyzers.props",
         "build/Microsoft.NET.ILLink.Tasks.props",
         "build/Microsoft.NET.ILLink.targets",
-        "microsoft.net.illink.tasks.8.0.30.nupkg.sha512",
+        "microsoft.net.illink.tasks.9.0.19.nupkg.sha512",
         "microsoft.net.illink.tasks.nuspec",
         "tools/net472/ILLink.Tasks.dll",
         "tools/net472/ILLink.Tasks.dll.config",
@@ -358,26 +357,26 @@
         "tools/net472/build/Microsoft.NET.ILLink.Analyzers.props",
         "tools/net472/build/Microsoft.NET.ILLink.Tasks.props",
         "tools/net472/build/Microsoft.NET.ILLink.targets",
-        "tools/net8.0/ILLink.Tasks.deps.json",
-        "tools/net8.0/ILLink.Tasks.dll",
-        "tools/net8.0/Mono.Cecil.Mdb.dll",
-        "tools/net8.0/Mono.Cecil.Pdb.dll",
-        "tools/net8.0/Mono.Cecil.Rocks.dll",
-        "tools/net8.0/Mono.Cecil.dll",
-        "tools/net8.0/Sdk/Sdk.props",
-        "tools/net8.0/build/Microsoft.NET.ILLink.Analyzers.props",
-        "tools/net8.0/build/Microsoft.NET.ILLink.Tasks.props",
-        "tools/net8.0/build/Microsoft.NET.ILLink.targets",
-        "tools/net8.0/illink.deps.json",
-        "tools/net8.0/illink.dll",
-        "tools/net8.0/illink.runtimeconfig.json",
+        "tools/net9.0/ILLink.Tasks.deps.json",
+        "tools/net9.0/ILLink.Tasks.dll",
+        "tools/net9.0/Mono.Cecil.Mdb.dll",
+        "tools/net9.0/Mono.Cecil.Pdb.dll",
+        "tools/net9.0/Mono.Cecil.Rocks.dll",
+        "tools/net9.0/Mono.Cecil.dll",
+        "tools/net9.0/Sdk/Sdk.props",
+        "tools/net9.0/build/Microsoft.NET.ILLink.Analyzers.props",
+        "tools/net9.0/build/Microsoft.NET.ILLink.Tasks.props",
+        "tools/net9.0/build/Microsoft.NET.ILLink.targets",
+        "tools/net9.0/illink.deps.json",
+        "tools/net9.0/illink.dll",
+        "tools/net9.0/illink.runtimeconfig.json",
         "useSharedDesignerContext.txt"
       ]
     },
-    "runtime.win-x64.Microsoft.DotNet.ILCompiler/8.0.30": {
-      "sha512": "9d7HSpKEzxBXn7P8+GQCpZwGSN9eci3Vm8aSsICGJHTs2xEshIMSGskvtKDcxiXtPvYkY5JSJFweMLumeAfW5Q==",
+    "runtime.win-x64.Microsoft.DotNet.ILCompiler/9.0.19": {
+      "sha512": "A5LsS2v59dk1xmxC1CIvFZW1OdgnlVSCFkSy4FniMwJ+mvNmK/wPD2Cr/xTnic6ho8EY/JOwY4drtBcEtupU8w==",
       "type": "package",
-      "path": "runtime.win-x64.microsoft.dotnet.ilcompiler/8.0.30",
+      "path": "runtime.win-x64.microsoft.dotnet.ilcompiler/9.0.19",
       "hasTools": true,
       "files": [
         ".nupkg.metadata",
@@ -385,17 +384,6 @@
         "Icon.png",
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
-        "build/BuildFrameworkNativeObjects.proj",
-        "build/Microsoft.DotNet.ILCompiler.SingleEntry.targets",
-        "build/Microsoft.DotNet.ILCompiler.props",
-        "build/Microsoft.NETCore.Native.Publish.targets",
-        "build/Microsoft.NETCore.Native.Unix.targets",
-        "build/Microsoft.NETCore.Native.Windows.targets",
-        "build/Microsoft.NETCore.Native.targets",
-        "build/NativeAOT.natstepfilter",
-        "build/NativeAOT.natvis",
-        "build/WindowsAPIs.txt",
-        "build/findvcvarsall.bat",
         "framework/Microsoft.CSharp.dll",
         "framework/Microsoft.CSharp.pdb",
         "framework/Microsoft.VisualBasic.Core.dll",
@@ -478,6 +466,7 @@
         "framework/System.Globalization.Calendars.pdb",
         "framework/System.Globalization.Extensions.dll",
         "framework/System.Globalization.Extensions.pdb",
+        "framework/System.Globalization.Native.pdb",
         "framework/System.Globalization.dll",
         "framework/System.Globalization.pdb",
         "framework/System.IO.Compression.Brotli.dll",
@@ -504,6 +493,8 @@
         "framework/System.IO.IsolatedStorage.pdb",
         "framework/System.IO.MemoryMappedFiles.dll",
         "framework/System.IO.MemoryMappedFiles.pdb",
+        "framework/System.IO.Pipelines.dll",
+        "framework/System.IO.Pipelines.pdb",
         "framework/System.IO.Pipes.AccessControl.dll",
         "framework/System.IO.Pipes.AccessControl.pdb",
         "framework/System.IO.Pipes.dll",
@@ -740,7 +731,7 @@
         "mibc/DotNet_HelloWorld.mibc",
         "mibc/DotNet_OrchardCore.mibc",
         "mibc/DotNet_TechEmpower.mibc",
-        "runtime.win-x64.microsoft.dotnet.ilcompiler.8.0.30.nupkg.sha512",
+        "runtime.win-x64.microsoft.dotnet.ilcompiler.9.0.19.nupkg.sha512",
         "runtime.win-x64.microsoft.dotnet.ilcompiler.nuspec",
         "sdk/Runtime.ServerGC.GuardCF.lib",
         "sdk/Runtime.ServerGC.GuardCF.pdb",
@@ -785,6 +776,7 @@
         "sdk/bootstrapperdll.GuardCF.pdb",
         "sdk/bootstrapperdll.obj",
         "sdk/bootstrapperdll.pdb",
+        "sdk/dn-containers.pdb",
         "sdk/eventpipe-disabled.GuardCF.lib",
         "sdk/eventpipe-disabled.GuardCF.pdb",
         "sdk/eventpipe-disabled.lib",
@@ -793,23 +785,25 @@
         "sdk/eventpipe-enabled.GuardCF.pdb",
         "sdk/eventpipe-enabled.lib",
         "sdk/eventpipe-enabled.pdb",
-        "tools/ILCompiler.Compiler.pdb",
-        "tools/ILCompiler.DependencyAnalysisFramework.pdb",
-        "tools/ILCompiler.MetadataTransform.pdb",
-        "tools/ILCompiler.RyuJit.pdb",
-        "tools/ILCompiler.TypeSystem.pdb",
+        "sdk/eventpipe-shared-objects.GuardCF.pdb",
+        "sdk/eventpipe-shared-objects.pdb",
+        "sdk/standalonegc-disabled.GuardCF.lib",
+        "sdk/standalonegc-disabled.GuardCF.pdb",
+        "sdk/standalonegc-disabled.lib",
+        "sdk/standalonegc-disabled.pdb",
+        "sdk/standalonegc-enabled.GuardCF.lib",
+        "sdk/standalonegc-enabled.GuardCF.pdb",
+        "sdk/standalonegc-enabled.lib",
+        "sdk/standalonegc-enabled.pdb",
+        "sdk/zlib.pdb",
+        "sdk/zlibstatic.lib",
         "tools/clrjit_universal_arm64_x64.dll",
         "tools/clrjit_universal_arm_x64.dll",
         "tools/clrjit_unix_x64_x64.dll",
         "tools/clrjit_win_x64_x64.dll",
         "tools/clrjit_win_x86_x64.dll",
         "tools/ilc.exe",
-        "tools/ilc.pdb",
-        "tools/jitinterface_x64.dll",
-        "tools/netstandard/ILCompiler.Build.Tasks.deps.json",
-        "tools/netstandard/ILCompiler.Build.Tasks.dll",
-        "tools/netstandard/ILCompiler.Build.Tasks.pdb",
-        "tools/objwriter.dll"
+        "tools/jitinterface_x64.dll"
       ]
     },
     "StbImageSharp/2.30.15": {
@@ -923,11 +917,11 @@
     }
   },
   "projectFileDependencyGroups": {
-    "net8.0": [
+    "net9.0": [
       "FNA >= 1.0.0",
       "FontStashSharp.FNA >= 1.5.6",
-      "Microsoft.DotNet.ILCompiler >= 8.0.30",
-      "Microsoft.NET.ILLink.Tasks >= 8.0.30",
+      "Microsoft.DotNet.ILCompiler >= 9.0.19",
+      "Microsoft.NET.ILLink.Tasks >= 9.0.19",
       "System.Text.Json >= 8.0.5"
     ]
   },
@@ -948,16 +942,16 @@
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
-        "net8.0"
+        "net9.0"
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
-        "net8.0": {
-          "framework": "net8.0",
-          "targetAlias": "net8.0",
+        "net9.0": {
+          "framework": "net9.0",
+          "targetAlias": "net9.0",
           "projectReferences": {
             "C:\\Users\\carpet\\Documents\\GitHub\\game-project\\FNA\\FNA.Core.csproj": {
               "projectPath": "C:\\Users\\carpet\\Documents\\GitHub\\game-project\\FNA\\FNA.Core.csproj"
@@ -981,20 +975,20 @@
       "SdkAnalysisLevel": "10.0.400"
     },
     "frameworks": {
-      "net8.0": {
-        "framework": "net8.0",
-        "targetAlias": "net8.0",
+      "net9.0": {
+        "framework": "net9.0",
+        "targetAlias": "net9.0",
         "dependencies": {
           "Microsoft.DotNet.ILCompiler": {
             "suppressParent": "All",
             "target": "Package",
-            "version": "[8.0.30, )",
+            "version": "[9.0.19, )",
             "autoReferenced": true
           },
           "Microsoft.NET.ILLink.Tasks": {
             "suppressParent": "All",
             "target": "Package",
-            "version": "[8.0.30, )",
+            "version": "[9.0.19, )",
             "autoReferenced": true
           },
           "System.Text.Json": {
@@ -1016,35 +1010,35 @@
         "downloadDependencies": [
           {
             "name": "Microsoft.AspNetCore.App.Ref",
-            "version": "[8.0.30, 8.0.30]"
+            "version": "[9.0.19, 9.0.19]"
           },
           {
             "name": "Microsoft.AspNetCore.App.Runtime.win-x64",
-            "version": "[8.0.30, 8.0.30]"
+            "version": "[9.0.19, 9.0.19]"
           },
           {
             "name": "Microsoft.NETCore.App.Host.win-x64",
-            "version": "[8.0.30, 8.0.30]"
+            "version": "[9.0.19, 9.0.19]"
           },
           {
             "name": "Microsoft.NETCore.App.Ref",
-            "version": "[8.0.30, 8.0.30]"
+            "version": "[9.0.19, 9.0.19]"
           },
           {
             "name": "Microsoft.NETCore.App.Runtime.win-x64",
-            "version": "[8.0.30, 8.0.30]"
+            "version": "[9.0.19, 9.0.19]"
           },
           {
             "name": "Microsoft.WindowsDesktop.App.Ref",
-            "version": "[8.0.30, 8.0.30]"
+            "version": "[9.0.19, 9.0.19]"
           },
           {
             "name": "Microsoft.WindowsDesktop.App.Runtime.win-x64",
-            "version": "[8.0.30, 8.0.30]"
+            "version": "[9.0.19, 9.0.19]"
           },
           {
             "name": "runtime.win-x64.Microsoft.DotNet.ILCompiler",
-            "version": "[8.0.30, 8.0.30]"
+            "version": "[9.0.19, 9.0.19]"
           }
         ],
         "frameworkReferences": {

@@ -29,7 +29,16 @@
       "gridCellsX": 80,
       "gridCellsY": 44,
       "entities": [
-        {"name": "Player", "id": 0, "_eid": "83839616", "x": 152, "y": 64, "originX": 0, "originY": 0}
+        {
+          "name": "Player",
+          "id": 0,
+          "_eid": "83839616",
+          "x": 152,
+          "y": 64,
+          "originX": 0,
+          "originY": 0,
+          "values": {"Components": "Transform"}
+        }
       ]
     },
     {

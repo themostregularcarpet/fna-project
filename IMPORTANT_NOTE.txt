@@ -1,0 +1,5 @@
+- since i'm linking static libraries, do NOT forget to put SDL3, FAudio, FNA3D, and FNA logos since zlib license and shit
+- in order to build the game correctly, ".\build.bat" should ALWAYS be used, cause it builds atlases and the game itself which is nice
+- if publishing the project is needed, the ".\publish.bat" bat-file is there and should ALWAYS be used for this regard as well
+
+-- TODO: Rewrite some code in Tilemap.cs bc entities in the entity layer should be in the correct order.

@@ -63,7 +63,6 @@ C:\Users\carpet\Documents\fna-game\fna-game\bin\Debug\net8.0\win-x64\Content\Aud
 C:\Users\carpet\Documents\fna-game\fna-game\bin\Debug\net8.0\win-x64\Content\Audio\Master.strings.bank
 C:\Users\carpet\Documents\fna-game\fna-game\bin\Debug\net8.0\win-x64\fmod.dll
 C:\Users\carpet\Documents\fna-game\fna-game\bin\Debug\net8.0\win-x64\fmodstudio.dll
-C:\Users\carpet\Documents\GitHub\game-project\fna-game\bin\Debug\net8.0\win-x64\Content\Graphics\atlas.bin
 C:\Users\carpet\Documents\GitHub\game-project\fna-game\bin\Debug\net8.0\win-x64\Content\Graphics\atlas_data.json
 C:\Users\carpet\Documents\GitHub\game-project\fna-game\bin\Debug\net8.0\win-x64\Content\Graphics\testLevel.json
 C:\Users\carpet\Documents\GitHub\game-project\fna-game\bin\Debug\net8.0\win-x64\Content\Graphics\testTileSet.png

@@ -2,22 +2,11 @@
 
 	<PropertyGroup>
 		<OutputType>Exe</OutputType>
-		<TargetFramework>net8.0</TargetFramework>
-		<RootNamespace>fna_game</RootNamespace>
+		<TargetFramework>net9.0</TargetFramework>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
-		<InvariantGlobalization>true</InvariantGlobalization>
-		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-
 		<PublishAot>true</PublishAot>
-		<IsAotCompatible>true</IsAotCompatible>
-		<RuntimeIdentifier>win-x64</RuntimeIdentifier>
-		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-		<OptimizationPreference>speed</OptimizationPreference>
-		<TrimMode>partial</TrimMode>
-		<EnableTrimAnalyzer>true</EnableTrimAnalyzer>
-
-		<IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
+		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
 		<LibPath>$(MSBuildProjectDirectory)\libs\</LibPath>
 	</PropertyGroup>
 
@@ -25,6 +14,10 @@
 		<ProjectReference Include="..\FNA\FNA.Core.csproj" />
 		<ProjectReference Include="..\FontStashSharp\src\XNA\FontStashSharp.FNA.Core.csproj" />
 		<PackageReference Include="System.Text.Json" Version="8.0.5" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<EmbeddedResource Include="Content\**\*" />
 	</ItemGroup>
 
 	<ItemGroup Condition="'$(OS)' != 'Windows_NT'">
@@ -47,11 +40,5 @@
 		<DirectPInvoke Include="FNA3D" />
 		<DirectPInvoke Include="FAudio" />
 		<!--<DirectPInvoke Include="libtheorafile" />-->
-	</ItemGroup>
-
-	<ItemGroup>
-		<Content Include="Content/**/*">
-			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-		</Content>
 	</ItemGroup>
 </Project>

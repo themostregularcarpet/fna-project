@@ -79,7 +79,15 @@
       "nodeDisplay": 0,
       "nodeGhost": true,
       "tags": [],
-      "values": []
+      "values": [
+        {
+          "name": "Components",
+          "definition": "Enum",
+          "display": 0,
+          "choices": ["Transform", "Velocity", "Sprite"],
+          "defaults": 0
+        }
+      ]
     }
   ],
   "tilesets": [

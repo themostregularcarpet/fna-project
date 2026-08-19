@@ -1,0 +1,4 @@
+C:\Users\carpet\Documents\GitHub\game-project\fna-game\bin\Release\net9.0\win-x64\publish\fna-game.exe
+C:\Users\carpet\Documents\GitHub\game-project\fna-game\bin\Release\net9.0\win-x64\publish\FNA.pdb
+C:\Users\carpet\Documents\GitHub\game-project\fna-game\bin\Release\net9.0\win-x64\publish\FNA.dll.config
+C:\Users\carpet\Documents\GitHub\game-project\fna-game\bin\Release\net9.0\win-x64\publish\FontStashSharp.FNA.pdb
