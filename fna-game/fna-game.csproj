@@ -18,6 +18,7 @@
 
 	<ItemGroup>
 		<EmbeddedResource Include="Content\**\*" />
+		<TrimmerRootAssembly Include="$(AssemblyName)" />
 	</ItemGroup>
 
 	<ItemGroup Condition="'$(OS)' != 'Windows_NT'">

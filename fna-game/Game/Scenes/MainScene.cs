@@ -37,4 +37,10 @@ public class MainScene : Scene
         base.Draw();
         tilemap.Draw();
     }
+
+    public override void Unload()
+    {
+        base.Unload();
+        tilemap.Unload();
+    }
 }

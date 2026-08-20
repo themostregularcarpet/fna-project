@@ -17,11 +17,7 @@ public abstract class Scene
 
     public static Entity AddEntity(string name)
     {
-        string className = char.ToUpper(name[0]) + name.Substring(1);
-        string fullName = $"Videogame.Entities.{className}";
-        
-        Type type = Type.GetType(fullName, true);
-        var entity = (Entity)Activator.CreateInstance(type);
+        var entity = EntityRegistry.Create(name);
         Entities.Add(entity);
         return entity;
     }

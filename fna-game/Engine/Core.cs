@@ -70,7 +70,7 @@ public class Core : Game
         Input = new Input();
         Atlas = new TextureAtlas();
         Atlas.LoadAtlas("atlas.png", "atlas_data.json");
-
+        EntityRegistry.Init();
         base.Initialize();
 
         screenRenderer = new ScreenRenderer(LOGICAL_WIDTH, LOGICAL_HEIGHT, UI_LOGICAL_WIDTH, UI_LOGICAL_HEIGHT);

@@ -3,7 +3,7 @@ using System.Text.Json.Serialization;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
 using Videogame.Engine.CBS;
-using System.Net.WebSockets;
+using System.Reflection;
 
 namespace Videogame.Engine.Textures;
 
@@ -46,7 +46,6 @@ public class Tilemap
     private int levelHeight;
     private int tileWidth;
     private int tileHeight;
-    private string name;
     private Texture2D tileset;
     private List<Layer> layers;
     
@@ -56,41 +55,52 @@ public class Tilemap
 
     private List<TilemapEntity> entities = new List<TilemapEntity>();
     private List<Entity> createdEntities = new List<Entity>();
-    private string entityLayerName;
 
     public Tilemap(string mapName, string tilesetName, string collisionLayerName = null, string entityLayerName = null)
     {
         this.collisionLayerName = collisionLayerName;
-        this.entityLayerName = entityLayerName;
 
-        string mapPathExt = Path.Combine(Core.Content.RootDirectory, "Graphics", mapName + ".json");
-        string json = File.ReadAllText(mapPathExt);
+        string fullMapPath = "fna-game.Content.Graphics." + mapName + ".json";
+        Level level;
 
-        var options = new JsonSerializerOptions
+        using (var jsonStream = Assembly.GetExecutingAssembly().GetManifestResourceStream(fullMapPath))
         {
-            PropertyNameCaseInsensitive = true,
-            TypeInfoResolver = LevelContext.Default
-        };
-        Level level = JsonSerializer.Deserialize<Level>(json, options);
+            if (jsonStream == null)
+            {
+                throw new FileNotFoundException($"{fullMapPath} file was not found!");
+            }
+
+            using var reader = new StreamReader(jsonStream);
+            var json = reader.ReadToEnd();
+
+            var options = new JsonSerializerOptions
+            {
+                PropertyNameCaseInsensitive = true,
+                TypeInfoResolver = LevelContext.Default
+            };
+            
+            Level lvl = JsonSerializer.Deserialize<Level>(json, options);
+            if (lvl == null) return;
+            level = lvl;
+        }
         
         layers = level.Layers; 
-        
         var layer = level.Layers[0];
-        name = layer.Name;
         tileWidth = layer.GridCellWidth;
         tileHeight = layer.GridCellHeight;
         levelWidth = layer.GridCellsX;
         levelHeight = layer.GridCellsY;
 
         tileRects = new List<Rectangle>();
-        string fullPath = Path.Combine(Core.Content.RootDirectory, "Graphics", tilesetName + ".png");
+        string fullTilesetPath = "fna-game.Content.Graphics." + tilesetName + ".png";
 
-        using (var fs = File.OpenRead(fullPath))
-        using (var ms = new MemoryStream())
+        using (var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream(fullTilesetPath))
         {
-            fs.CopyTo(ms);
-            ms.Position = 0;
-            tileset = Texture2D.FromStream(Core.GraphicsDevice, ms);
+            if (stream == null)
+            {
+                throw new FileNotFoundException($"{fullTilesetPath} file was not found!");
+            }
+            tileset = Texture2D.FromStream(Core.GraphicsDevice, stream);
         }
 
         int tilesPerRow = tileset.Width / tileWidth;
@@ -147,26 +157,23 @@ public class Tilemap
     {
         foreach (var layer in layers)
         {
-            if (layer.Data != null)
+            if (layer.Data != null && layer.Name != collisionLayerName)
             {
-                if (layer.Name != collisionLayerName)
+                for (int y = 0; y < levelHeight; y++)
                 {
-                    for (int y = 0; y < levelHeight; y++)
+                    for (int x = 0; x < levelWidth; x++)
                     {
-                        for (int x = 0; x < levelWidth; x++)
-                        {
-                            int index = y * levelWidth + x;
-                            int tileId = layer.Data[index];
+                        int index = y * levelWidth + x;
+                        int tileId = layer.Data[index];
 
-                            if (tileId != -1)
+                        if (tileId != -1)
+                        {
+                            if (tileId > 0 || tileId <= tileRects.Count)
                             {
-                                if (tileId > 0 || tileId <= tileRects.Count)
-                                {
-                                    var rect = tileRects[tileId];
-                                    Vector2 position = new Vector2(x * tileWidth, y * tileHeight);
-                                    Core.SpriteBatch.Draw(tileset, position, rect, Color.White);                                    
-                                } 
-                            }
+                                var rect = tileRects[tileId];
+                                Vector2 position = new Vector2(x * tileWidth, y * tileHeight);
+                                Core.SpriteBatch.Draw(tileset, position, rect, Color.White);                                    
+                            } 
                         }
                     }
                 }
@@ -175,7 +182,6 @@ public class Tilemap
             {
                 foreach (var e in createdEntities)
                 {
-                    System.Console.WriteLine(e);
                     var drawableComponent = e.GetComponent<SpriteComponent>();
 
                     if (drawableComponent != null)
@@ -185,5 +191,10 @@ public class Tilemap
                 }
             }
         }
+    }
+
+    public void Unload()
+    {
+        tileset?.Dispose();
     }
 }
