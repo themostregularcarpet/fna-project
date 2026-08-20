@@ -4,16 +4,15 @@ namespace Videogame.Engine.CBS;
 
 public class CameraComponent
 {
-    private Vector2 position;
-    private Vector2 smoothPosition;
-    private Vector2 targetPosition;
+    private Vector2 _position;
+    private Vector2 _smoothPosition;    
+    private Vector2 _targetPosition;
 
     public Vector2 Position
     {
-        get => position;
-        set => targetPosition = value;
+        get => _position;
+        set => _targetPosition = value;
     }
-
     public Vector2 Origin { get; set; }
     public float Zoom { get; set; } = 1f;
     public float Rotation { get; set; } = 0f;
@@ -21,46 +20,54 @@ public class CameraComponent
     public CameraComponent(Vector2 origin)
     {
         Origin = origin;
-        position = Vector2.Zero;
-        smoothPosition = Vector2.Zero;
-        targetPosition = Vector2.Zero;
+        _position = Vector2.Zero;
+        _smoothPosition = Vector2.Zero;
+        _targetPosition = Vector2.Zero;
     }
 
     public Matrix GetViewMatrix()
     {
-        return Matrix.CreateTranslation(new Vector3(-position, 0f)) *
+        return Matrix.CreateTranslation(new Vector3(-_position, 0f)) *
                Matrix.CreateRotationZ(Rotation) *
                Matrix.CreateScale(new Vector3(Zoom, Zoom, 1f)) *
                Matrix.CreateTranslation(new Vector3(Origin, 0f));
     }
 
-    public void Update(int width, int height, GameTime gameTime)
+    public void Update(int clampWidth, int clampHeight, GameTime gameTime)
     {
         float halfWidth = Origin.X;
         float halfHeight = Origin.Y;
 
-        float targetX = targetPosition.X;
-        float targetY = targetPosition.Y;
+        float targetX = _targetPosition.X;
+        float targetY = _targetPosition.Y;
 
-        if (width < halfWidth * 2)
-            targetX = width / 2f;
-        else
-            targetX = Math.Clamp(targetX, halfWidth, width - halfWidth);
-
-        if (height < halfHeight * 2)
-            targetY = height / 2f;
-        else
-            targetY = Math.Clamp(targetY, halfHeight, height - halfHeight);
-
-        if (smoothPosition == Vector2.Zero)
+        if (clampWidth < halfWidth * 2)
         {
-            smoothPosition = new Vector2(targetX, targetY);
+            targetX = clampWidth / 2f;
+        }
+        else
+        {
+            targetX = Math.Clamp(targetX, halfWidth, clampWidth - halfWidth);
+        }
+
+        if (clampHeight < halfHeight * 2)
+        {
+            targetY = clampHeight / 2f;
+        }
+        else
+        {
+            targetY = Math.Clamp(targetY, halfHeight, clampHeight - halfHeight);
+        }
+
+        if (_smoothPosition == Vector2.Zero)
+        {
+            _smoothPosition = new Vector2(targetX, targetY);
         }
 
         float lerpFactor = 1f - (float)Math.Pow(0.00075f, gameTime.ElapsedGameTime.TotalSeconds);
-        smoothPosition.X += (targetX - smoothPosition.X) * lerpFactor;
-        smoothPosition.Y += (targetY - smoothPosition.Y) * lerpFactor;
+        _smoothPosition.X += (targetX - _smoothPosition.X) * lerpFactor;
+        _smoothPosition.Y += (targetY - _smoothPosition.Y) * lerpFactor;
 
-        position = new Vector2(MathF.Round(smoothPosition.X), MathF.Round(smoothPosition.Y));
+        _position = new Vector2(MathF.Round(_smoothPosition.X), MathF.Round(_smoothPosition.Y));
     }
 }

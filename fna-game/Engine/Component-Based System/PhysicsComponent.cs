@@ -5,6 +5,7 @@ namespace Videogame.Engine.CBS;
 public class PhysicsComponent : IComponent
 {
     public Entity Owner { get; set; }
+    public static List<Rectangle> TileRects = new ();
 
     private Vector2 remainder;
 
@@ -52,6 +53,13 @@ public class PhysicsComponent : IComponent
             }
         }
 
+        foreach (var rect in TileRects)
+        {
+            if (collisionPredictRect.Intersects(rect))
+            {
+                return false;
+            }
+        }
 
         transform.Position.X += sign.X;
         transform.Position.Y += sign.Y;

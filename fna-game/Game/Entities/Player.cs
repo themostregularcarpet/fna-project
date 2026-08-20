@@ -11,7 +11,12 @@ public class Player : Entity
     {
         var transform = new TransformComponent();
         transform.Position = Vector2.Zero;
-        var sprite = new SpriteComponent("yellow", SpriteOptions.Default(transform.Position));
+        var spriteOptions = new SpriteOptions
+        {
+            Position = transform.Position,
+            Origin = new Vector2(16, 16),
+        };
+        var sprite = new SpriteComponent("yellow", spriteOptions);
         //var anim = new AnimationComponent(SpriteOptions.Default(transform.Position), TimeSpan.FromMilliseconds(300), "red", "yellow", "purple");
         var collider = new ColliderComponent((int)transform.Position.X, (int)transform.Position.Y, (int)sprite.Width - 12, (int)sprite.Height - 12, new Vector2(6, 6))
         {
@@ -20,7 +25,7 @@ public class Player : Entity
         var physics = new PhysicsComponent();
         var controls = new ControlsComponent()
         {
-            MoveSpeed = 150f,
+            MoveSpeed = 100f,
         };
         
 

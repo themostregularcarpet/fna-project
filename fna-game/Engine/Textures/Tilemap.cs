@@ -130,7 +130,7 @@ public class Tilemap
                 }
             }
         }
-        //Actor.TileRects = collisionRects;
+        PhysicsComponent.TileRects = collisionRects;
 
         var entityLayer = level.Layers.FirstOrDefault(l => l.Name == entityLayerName);
         if (entityLayer != null)

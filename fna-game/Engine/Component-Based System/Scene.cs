@@ -1,4 +1,5 @@
 using Microsoft.Xna.Framework;
+using Videogame.Engine.Textures;
 
 namespace Videogame.Engine.CBS;
 
@@ -8,10 +9,8 @@ public abstract class Scene
     private List<Entity> entitiesToAdd = new();
     private List<Entity> entitiesToRemove = new();
 
-    private int centerCamX = 160;
-    private int centerCamY = 90;
-
     public CameraComponent Camera { get; private set; }
+    public Tilemap? Tilemap { get; set; }
 
     public void AddEntity(Entity entity) => entitiesToAdd.Add(entity);
 
@@ -24,15 +23,17 @@ public abstract class Scene
 
     public void RemoveEntity(Entity entity) => entitiesToRemove.Add(entity);
 
+    public Entity GetEntity<T>() where T : Entity => Entities.OfType<T>().FirstOrDefault();
+
     public virtual void Init()
     {
-        Camera = new CameraComponent(new Vector2(centerCamX, centerCamY));
+        Camera = new CameraComponent(new Vector2(160, 90));
         Camera.Zoom = 1f;
+        System.Console.WriteLine("cam initialized!");
     }
 
     public virtual void Update(GameTime gameTime)
     {
-        Camera?.Update(centerCamX, centerCamY, gameTime);
         foreach (var entity in entitiesToAdd)
         {
             Entities.Add(entity);
@@ -49,6 +50,15 @@ public abstract class Scene
         {
             entity.Update(gameTime);
         }
+
+        if (Tilemap != null)
+        {
+            Camera.Update(Tilemap.RoomWidth, Tilemap.RoomHeight, gameTime);
+        } 
+        else
+        {
+            Camera.Update(320, 180, gameTime);
+        }
     }
 
     public virtual void Draw()
@@ -57,6 +67,7 @@ public abstract class Scene
         //{
         //    entity.Draw();
         //}
+        Tilemap?.Draw();
     }
 
     public virtual void Unload()
@@ -64,5 +75,6 @@ public abstract class Scene
         Entities.Clear();
         entitiesToAdd.Clear();
         entitiesToRemove.Clear();
+        Tilemap?.Unload();
     }
 }

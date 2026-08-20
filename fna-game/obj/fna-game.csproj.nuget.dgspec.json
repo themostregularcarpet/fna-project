@@ -93,6 +93,10 @@
               "version": "[9.0.19, 9.0.19]"
             },
             {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[9.0.19, 9.0.19]"
+            },
+            {
               "name": "Microsoft.NETCore.App.Ref",
               "version": "[9.0.19, 9.0.19]"
             },
@@ -202,11 +206,6 @@
           },
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.400/PortableRuntimeIdentifierGraph.json"
         }
-      },
-      "runtimes": {
-        "win-x64": {
-          "#import": []
-        }
       }
     },
     "C:\\Users\\carpet\\Documents\\GitHub\\game-project\\FontStashSharp\\src\\XNA\\FontStashSharp.FNA.Core.csproj": {
@@ -305,11 +304,6 @@
             }
           },
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.400/PortableRuntimeIdentifierGraph.json"
-        }
-      },
-      "runtimes": {
-        "win-x64": {
-          "#import": []
         }
       }
     }

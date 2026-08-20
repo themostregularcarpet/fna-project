@@ -7,20 +7,16 @@ namespace Videogame.Scenes;
 
 public class MainScene : Scene
 {    
-    private Player player;
     private Enemy enemy;
-    private Tilemap tilemap;
 
     public override void Init()
     {
         base.Init();
-        tilemap = new Tilemap("testLevel", "testTileSet", "collision", "entities");
+        Tilemap = new Tilemap("testLevel", "testTileSet", "collision", "entities");
     }
 
     public override void Update(GameTime gameTime)
     {
-        base.Update(gameTime);
-
         if (Core.Input.Keyboard.WasKeyPressed(Microsoft.Xna.Framework.Input.Keys.Z))
         {
             foreach (var e in Entities)
@@ -29,18 +25,19 @@ public class MainScene : Scene
             }
         }
 
-        //Camera.Position = player.GetComponent<TransformComponent>().Position;
+        var playerPos = GetEntity<Player>().GetComponent<TransformComponent>();
+        Camera.Position = playerPos.Position;
+    
+        base.Update(gameTime);
     }
 
     public override void Draw()
     {
         base.Draw();
-        tilemap.Draw();
     }
 
     public override void Unload()
     {
         base.Unload();
-        tilemap.Unload();
     }
 }

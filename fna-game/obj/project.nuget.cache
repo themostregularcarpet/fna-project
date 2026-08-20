@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "ehUXsXh9uFc=",
+  "dgSpecHash": "FT8+hNij0KI=",
   "success": true,
   "projectFilePath": "C:\\Users\\carpet\\Documents\\GitHub\\game-project\\fna-game\\fna-game.csproj",
   "expectedPackageFiles": [
@@ -19,7 +19,8 @@
     "C:\\Users\\carpet\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x64\\9.0.19\\microsoft.windowsdesktop.app.runtime.win-x64.9.0.19.nupkg.sha512",
     "C:\\Users\\carpet\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\9.0.19\\microsoft.aspnetcore.app.ref.9.0.19.nupkg.sha512",
     "C:\\Users\\carpet\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x64\\9.0.19\\microsoft.aspnetcore.app.runtime.win-x64.9.0.19.nupkg.sha512",
-    "C:\\Users\\carpet\\.nuget\\packages\\runtime.win-x64.microsoft.dotnet.ilcompiler\\9.0.19\\runtime.win-x64.microsoft.dotnet.ilcompiler.9.0.19.nupkg.sha512"
+    "C:\\Users\\carpet\\.nuget\\packages\\runtime.win-x64.microsoft.dotnet.ilcompiler\\9.0.19\\runtime.win-x64.microsoft.dotnet.ilcompiler.9.0.19.nupkg.sha512",
+    "C:\\Users\\carpet\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\9.0.19\\microsoft.netcore.app.host.win-x64.9.0.19.nupkg.sha512"
   ],
   "logs": []
 }
